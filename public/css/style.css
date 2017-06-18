@@ -1,0 +1,27 @@
+html, body {
+	background: url('../images/notebook.png');
+}
+
+#email, #password {
+  	padding: 10px;
+    width: 300px;
+}
+
+.login {
+	width: 200px;
+	background-color: #4286f4;
+	color: white;
+	border: 0;
+}
+
+.panel-default > .panel-heading {
+	background-color: #4286f4;
+}
+
+.panel-heading > h5 {
+	color: white;
+}
+
+.panel-heading, .panel-body {
+	padding: 20px;
+}
