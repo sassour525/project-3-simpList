@@ -46,5 +46,15 @@ html, body {
 }
 
 #add-list-item-btn {
-	margin-bottom: 2px;
+	margin-left: 5px;
+}
+
+h5 {
+	color: white;
+}
+
+.new-list-item {
+	border: thin solid #4286f4;
+	background-color: #4286f4;
+	margin: 10px;
 }
