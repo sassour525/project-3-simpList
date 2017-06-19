@@ -11,7 +11,7 @@ html, body {
 	width: 200px;
 	background-color: #4286f4;
 	color: white;
-	border: 0;
+	border-color: #4286f4;
 }
 
 .panel-default > .panel-heading {
@@ -24,4 +24,27 @@ html, body {
 
 .panel-heading, .panel-body {
 	padding: 20px;
+}
+
+.profile-btns {
+  	padding: 10px;
+    width: 300px;
+    margin: 10px;
+    background-color: #4286f4;
+	color: white;
+	border-color: #4286f4;
+}
+
+#dropdown, #new-list-item-txt-box, #share-list-txt-box, #new-list-name-box {
+	width: 300px;
+	margin: 2px;
+}
+
+#new-list-item-txt-box {
+	width: 270px;
+	margin-bottom: 20px;
+}
+
+#add-list-item-btn {
+	margin-bottom: 2px;
 }

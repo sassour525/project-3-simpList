@@ -25,8 +25,8 @@ class Panel extends Component {
     this.state = {
       dropdownOptions,
       selected: {
-        text: "Show Lorem",
-        value: "SHOW_LOREM"
+        text: "Select a Saved List",
+        value: "SELECT_SAVED"
       }
     };
     // Binding handleDropdownSelect to our component since we'll be passing
@@ -65,38 +65,23 @@ class Panel extends Component {
 
     return (
       <div className="panel panel-default">
-        <div
-          style={styles.panelHeadingStyle}
-          className="panel-heading"
-        >
-          Choose One!
-          <Dropdown
-            style={styles.dropdownStyle}
-            options={this.state.dropdownOptions}
-            selected={this.state.selected}
-            handleSelect={this.handleDropdownSelect}  
-          />
+        <div className="panel-heading">
+          <h5>Saved Lists</h5>
         </div>
         <div className="panel-body">
         {/* Here is where we want to render our conditional content */}
         {/*output*/}
+        <Dropdown
+          options={this.state.dropdownOptions}
+          selected={this.state.selected}
+          handleSelect={this.handleDropdownSelect}  
+        />
         {this.renderDrop()}
         </div>
       </div>
     );
   }
 }
-
-// Some styles we'll pass to our Panel component and dropwdown component
-const styles = {
-  dropdownStyle: {
-    float: "right",
-    bottom: 10
-  },
-  panelHeadingStyle: {
-    padding: 20
-  }
-};
 
 // Exporting our Panel component
 export default Panel;
