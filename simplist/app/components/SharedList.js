@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 
-class Login extends Component {
+class SharedList extends Component {
 	constructor() {
 		super();
-		this.state = {
-			username: '',
-			password: ''
-		}
 	}
 
 	render() {
 		return (
 			<div className="panel panel-default">
 				<div className="panel-heading">
-					<h5>Welcome to simpList</h5>
+					<h5>Shared Lists</h5>
 				</div>
 				<div className="panel-body">
 						<div className="row">
@@ -36,4 +32,4 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+export default SharedList;

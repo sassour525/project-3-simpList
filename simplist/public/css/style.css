@@ -1,0 +1,66 @@
+html,
+body {
+    background: url('../images/notebook.png');
+}
+
+#email,
+#password {
+    padding: 10px;
+    width: 300px;
+}
+
+.login {
+    width: 200px;
+    background-color: #4286f4;
+    color: white;
+    border-color: #4286f4;
+}
+
+.panel-default>.panel-heading {
+    background-color: #4286f4;
+}
+
+.panel-heading>h5 {
+    color: white;
+}
+
+.panel-heading,
+.panel-body {
+    padding: 20px;
+}
+
+.profile-btns {
+    padding: 10px;
+    width: 300px;
+    margin: 10px;
+    background-color: #4286f4;
+    color: white;
+    border-color: #4286f4;
+}
+
+#dropdown,
+#new-list-item-txt-box,
+#share-list-txt-box,
+#new-list-name-box {
+    width: 300px;
+    margin: 2px;
+}
+
+#new-list-item-txt-box {
+    width: 270px;
+    margin-bottom: 20px;
+}
+
+#add-list-item-btn {
+    margin-left: 5px;
+}
+
+h5 {
+    color: white;
+}
+
+.new-list-item {
+    border: thin solid #4286f4;
+    background-color: #4286f4;
+    margin: 10px;
+}
