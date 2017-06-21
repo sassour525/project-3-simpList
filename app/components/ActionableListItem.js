@@ -7,10 +7,10 @@ const ActionableListItem = (props)=>{
     let taskIndex=props.taskIndex;
     if(props.completed===true){
         statusClass='taskItemComplete';
-        buttonMessage="Mark As Incomplete";
-    }else{
+        buttonMessage="Set as Incomplete";
+    } else {
         statusClass='taskItemIncomplete'
-        buttonMessage="Mark As Complete";
+        buttonMessage="Complete Item";
     };
 
     return (

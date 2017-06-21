@@ -18,8 +18,6 @@ const dropdownOptions = [
   }
 ];
 
-var output = [];
-
 class Panel extends Component {
   // Initializing our dropdownOptions on state, setting a default selected option
   // Also setting all of our possible options using the dropdownOptions variable
@@ -31,18 +29,19 @@ class Panel extends Component {
         text: "Select a Saved List",
         value: "SELECT_SAVED",
       },
-      todoList: [{task: "task1", completed: false}, {task: "task2", completed: false}]
+      todoList: [{task: "task1", completed: false}, {task: "task2", completed: false}],
+      output: []
     };
     // Binding handleDropdownSelect to our component since we'll be passing
     // This method to another component
     this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
     this.renderDrop = this.renderDrop.bind(this);
-    this.toggleClick = this.renderDrop.bind(this);
+    this.toggleClick = this.toggleClick.bind(this);
   }
   // This function is called by the Dropdown component whenever an option is chosen
   handleDropdownSelect(option) {
     // Setting this.state.selected to the dropdown option the user clicks
-    this.setState({ selected: option });
+    this.setState({ selected: option, output: [] });
   }
 
   toggleClick(taskIndex) {
@@ -50,30 +49,32 @@ class Panel extends Component {
       const newToDoList = [...this.state.todoList];
       newToDoList[taskIndex].completed = !newToDoList[taskIndex].completed;
       this.setState({
-          todoList: newToDoList
+          todoList: newToDoList,
+          output: []
       });
   }
 
   renderDrop() {
     if ( this.state.selected.value == 'SHOW_L1') {
       {this.state.todoList.map((item,index)=>{
-            output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
-            return output;
+            this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
+            return this.state.output;
       })}
     }
+    // } else if ( this.state.selected.value == 'SHOW_L2') {
+    //   {this.state.todoList.map((item,index)=>{
+    //         this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
+    //         return this.state.output;
+    //   })}
+    // } else if ( this.state.selected.value == 'SHOW_L3') {
+    //   {this.state.todoList.map((item,index)=>{
+    //         this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
+    //         return this.state.output;
+    //   })}
+    // }
   }
 
   render() {
-
-    // var output = null;
-    // if ( this.state.selected.value == 'SHOW_LOREM') {
-    //   output = <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-    //   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>;
-    // } else if (this.state.selected.value == 'SHOW_CAT') {
-    //   output = <img src="http://static.flickr.com/34/122530930_6e16f1eb5c.jpg"/>;
-    // } else if (this.state.selected.value == 'SHOW_NONE') {
-    //   output = null;
-    // }
 
     return (
       <div className="panel panel-default">
@@ -88,7 +89,7 @@ class Panel extends Component {
           handleSelect={this.handleDropdownSelect}  
         />
         {this.renderDrop()}
-        {output}
+        {this.state.output}
         </div>
       </div>
     );

@@ -53,8 +53,21 @@ h5 {
 	color: white;
 }
 
+#save-list-name-txt {
+	margin-right: 5px;
+}
+
 .new-list-item {
 	border: thin solid #4286f4;
 	background-color: #4286f4;
 	margin: 10px;
+}
+
+.taskItemComplete h5{
+  text-decoration: line-through;
+}
+
+.taskItemComplete {
+	background-color:rgb(255, 140, 140);
+	border-color: rgb(255, 140, 140);
 }
