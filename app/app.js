@@ -12,7 +12,7 @@ import CreateList from "./components/CreateList";
 // Creating an App component which renders a Panel inside of a Container
 const App = () => (
   <Container>
-    <CreateList />
+    <Panel />
   </Container>
 );
 
