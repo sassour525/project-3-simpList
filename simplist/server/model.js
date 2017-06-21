@@ -19,13 +19,22 @@ var ListSchema = new Schema({
       userId: String,
       firstName: String,
       lastName: String,
-      adminAccess: Boolean
+      adminAccess: {
+        type: Boolean,
+        default: false
+      }
   }],
   listItems: [{
       itemName: String,
-      priority: Boolean,
+      priority: {
+        type: Boolean,
+        default: false
+      },
       order: Number,
-      completed: Boolean
+      completed: {
+        type:Boolean,
+        default: false
+      }
   }],
   comments: [{
       body: String,
