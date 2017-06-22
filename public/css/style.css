@@ -2,6 +2,12 @@ html, body {
 	background: url('../images/notebook.png');
 }
 
+.container {
+	margin-top: 50px;
+	text-align: center;
+    
+}
+
 #email, #password {
   	padding: 10px;
     width: 300px;
