@@ -4,20 +4,23 @@ var bluebird = require("bluebird");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+mongoose.Promise = bluebird;
+
 var routes = require("./routes/routes");
 
 var app = module.exports = express();
 var PORT = process.env.PORT || 3000;
 
-app.use(logger("dev"));
-
-var PORT = process.env.PORT || 3000;
+if(process.env.NODE_ENV !== "test"){
+  app.use(logger("dev"));
+};
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static('./public'));
+app.use("/", routes);
 
 //DB configuration
 // -------------------------------------------------
