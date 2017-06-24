@@ -18,7 +18,7 @@ const dropdownOptions = [
   }
 ];
 
-class SavedPanel extends Component {
+class SharedPanel extends Component {
   // Initializing our dropdownOptions on state, setting a default selected option
   // Also setting all of our possible options using the dropdownOptions variable
   constructor() {
@@ -79,7 +79,7 @@ class SavedPanel extends Component {
     return (
       <div className="panel panel-default">
         <div className="panel-heading">
-          <h5>Saved Lists</h5>
+          <h5>Shared Lists</h5>
         </div>
         <div className="panel-body">
         {/* Here is where we want to render our conditional content */}
@@ -97,4 +97,4 @@ class SavedPanel extends Component {
 }
 
 // Exporting our Panel component
-export default SavedPanel;
+export default SharedPanel;
