@@ -32,21 +32,21 @@ class CreateList extends Component{
     };
     render(){
         return(
-			<div className="panel panel-default">
-				<div className="panel-heading">
-					<h5>Create a new list</h5>
-				</div>
-				<div className="panel-body">
-				<InputBar addTask={this.state.addNewTask} clearTasks={this.state.clearTasks}/>
-		            <div>
-		                {this.state.todoList.map((item,index)=>{
-		                    return <ListItem task={item.task} key={index} taskIndex={index}/>
-		                })}
-		            </div>
-                    <input id="save-list-name-txt" type="text"  placeholder="List Name"/>
-                    <button id="save-list-btn">Save List</button>
-		        </div>
-		    </div>
+          <div className="panel panel-default">
+            <div className="panel-heading">
+              <h5>Create a new list</h5>
+            </div>
+            <div className="panel-body">
+              <InputBar addTask={this.state.addNewTask} clearTasks={this.state.clearTasks}/>
+              <div>
+                {this.state.todoList.map((item,index)=>{
+                  return <ListItem task={item.task} key={index} taskIndex={index}/>
+                })}
+              </div>
+              <input id="save-list-name-txt" type="text"  placeholder="List Name"/>
+              <button id="save-list-btn">Save List</button>
+            </div>
+          </div>
         )
     }
 };
