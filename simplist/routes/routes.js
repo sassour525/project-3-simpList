@@ -8,7 +8,7 @@ var listRoutes = require("./listRoutes");
 
 router.use("/user", userRoutes);
 //router.use("/comments", commentsRoutes);
-//router.use("/list", listRoutes);
+router.use("/list", listRoutes);
 
 router.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/index.html"));
