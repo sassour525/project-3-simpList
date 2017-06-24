@@ -29,7 +29,7 @@ class SavedPanel extends Component {
         text: "Select a Saved List",
         value: "SELECT_SAVED",
       },
-      todoList: [{task: "task1", completed: false}, {task: "task2", completed: false}],
+      todoList: [{task: "Saved-task1", completed: false}, {task: "Saved-task2", completed: false}],
       output: []
     };
     // Binding handleDropdownSelect to our component since we'll be passing
