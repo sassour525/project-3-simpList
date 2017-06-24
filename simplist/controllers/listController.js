@@ -4,7 +4,7 @@ module.exports = {
 
     find: function (req, res) {
 
-        ListModel.find({})
+        List.find({})
             .exec(function (err, doc) {
 
                 if (err) {
@@ -19,7 +19,7 @@ module.exports = {
     },
 
     create: function (req, res) {
-        var newList = new ListModel(req.body);
+        var newList = new List(req.body);
 
         console.log(req.body);
 
@@ -46,9 +46,9 @@ module.exports = {
 
     destroy: function(req, res) {
 
-        var url = req.param("url");
+        var id = req.params.id;
 
-        ListModel.find({ url: url }).remove().exec(function (err) {
+        List.find({ _id: id }).remove().exec(function (err) {
             if (err) {
                 console.log(err);
             }
