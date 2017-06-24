@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+//login component with form for email and password
 class Login extends Component {
 	constructor() {
 		super();

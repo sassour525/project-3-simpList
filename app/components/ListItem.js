@@ -1,5 +1,6 @@
 import React from 'react';
 
+//regular list iem without "complete" button for creating a list
 const ListItem = (props)=>{
 
     let statusClass='';

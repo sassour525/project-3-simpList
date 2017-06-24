@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListItem from './ListItem.js';
 import InputBar from './InputBar.js'
 
+//component used for creating a new list. Uses InputBar and ListItem
 class CreateList extends Component{
 
     constructor(props){
