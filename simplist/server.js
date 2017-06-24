@@ -1,26 +1,34 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var bluebird = require("bluebird");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-var ListModel = require("./server/model");
+var routes = require("./routes/routes");
 
-var app = express();
+var app = module.exports = express();
 var PORT = process.env.PORT || 3000;
 
 app.use(logger("dev"));
+
+var PORT = process.env.PORT || 3000;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.use(express.static("./public"));
+app.use(express.static('./public'));
 
 //DB configuration
 // -------------------------------------------------
 
+if(process.env.MONGODB_URI){
+    mongoose.connect(MONGODB_URI);
+}
+else{
+    mongoose.connect("mongodb://localhost/simplist");
+}
 
-mongoose.connect("mongod://localhost/simplist");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
@@ -28,7 +36,9 @@ db.on("error", function(err) {
 });
 
 db.once("open", function() {
-  console.log("Mongoose connection successful.");
+  app.listen(PORT, function () {
+        console.log("Connected to mongoose. App listening on PORT: " + PORT);
+    });
 });
 
 //CRUD API routes
