@@ -24,7 +24,7 @@ module.exports = {
     },
 
     update: function(req, res) {
-        User.findOneAndupdate(
+        User.findOneAndUpdate(
             {_id: req.params.id},
             {$set: req.body},
             {new: true}).then(function (updatedUser) {
