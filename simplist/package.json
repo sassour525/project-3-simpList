@@ -23,7 +23,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "react_test": "react-scripts test --env=jsdom",
+    "test": "mocha --timeout 15000",
     "eject": "react-scripts eject"
   }
 }

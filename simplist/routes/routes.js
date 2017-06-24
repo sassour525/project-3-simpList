@@ -6,7 +6,7 @@ var userRoutes = require("./userRoutes");
 var commentsRoutes = require("./commentsRoutes");
 var listRoutes = require("./listRoutes");
 
-//router.use("/user", userRoutes);
+router.use("/user", userRoutes);
 //router.use("/comments", commentsRoutes);
 //router.use("/list", listRoutes);
 
