@@ -44,6 +44,11 @@ class SavedPanel extends Component {
     this.setState({ selected: option, output: [] });
   }
 
+  componentDidMount() {
+    //DB call to get dropdownOptions
+    //push the query results into the array to pass along to DropDown to render
+  }
+
   toggleClick(taskIndex) {
       console.log(taskIndex);
       const newToDoList = [...this.state.todoList];
