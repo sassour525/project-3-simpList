@@ -26,10 +26,10 @@ class SharedPanel extends Component {
     this.state = {
       dropdownOptions,
       selected: {
-        text: "Select a Saved List",
+        text: "Select a Shared List",
         value: "SELECT_SAVED",
       },
-      todoList: [{task: "task1", completed: false}, {task: "task2", completed: false}],
+      todoList: [{task: "Shared-task1", completed: false}, {task: "Shared-task2", completed: false}],
       output: []
     };
     // Binding handleDropdownSelect to our component since we'll be passing
