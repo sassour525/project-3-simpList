@@ -11,8 +11,6 @@ var PORT = process.env.PORT || 3000;
 
 app.use(logger("dev"));
 
-var PORT = process.env.PORT || 3000;
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
