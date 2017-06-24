@@ -26,8 +26,8 @@
         "react-addons-test-utils": "^15.6.0"
     },
     "scripts": {
-        // "start": "react-scripts start",
-        // "build": "react-scripts build",
+        "start": "node server.js",
+        "build": "react-scripts build",
         "react_test": "react-scripts test --env=jsdom",
         "test": "mocha --timeout 15000",
         "eject": "react-scripts eject"
