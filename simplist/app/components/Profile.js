@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+//initial profile page with buttons to navigate to create/saved/shared lists
 class Profile extends Component {
 	constructor() {
 		super();

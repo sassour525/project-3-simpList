@@ -2,20 +2,13 @@ import React, { Component } from 'react';
 import ListItem from './ListItem.js';
 import InputBar from './InputBar.js'
 
+//component used for creating a new list. Uses InputBar and ListItem
 class CreateList extends Component{
 
     constructor(props){
         super(props);
         this.state = {
             todoList:[],
-            toggleClick:(taskIndex) => {
-                console.log(taskIndex);
-                const newToDoList = [...this.state.todoList];
-                newToDoList[taskIndex].completed = !newToDoList[taskIndex].completed;
-                this.setState({
-                    todoList: newToDoList
-                });
-            },
             clearTasks:()=>{
                 const uncompletedTasks = this.state.todoList.filter(function(todo) {
                     return todo.completed == false;
@@ -33,7 +26,7 @@ class CreateList extends Component{
                currentList.push(newItem);
                this.setState({
                     todoList: currentList
-               })
+               });
             }
         };    
     };
@@ -47,9 +40,11 @@ class CreateList extends Component{
 				<InputBar addTask={this.state.addNewTask} clearTasks={this.state.clearTasks}/>
 		            <div>
 		                {this.state.todoList.map((item,index)=>{
-		                    return <ListItem task={item.task} completed={item.completed} handleClick={this.state.toggleClick} key={index} taskIndex={index}/>
+		                    return <ListItem task={item.task} key={index} taskIndex={index}/>
 		                })}
 		            </div>
+                    <input id="save-list-name-txt" type="text"  placeholder="List Name"/>
+                    <button id="save-list-btn">Save List</button>
 		        </div>
 		    </div>
         )

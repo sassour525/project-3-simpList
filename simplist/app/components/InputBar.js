@@ -1,5 +1,6 @@
 import React from 'react';
 
+//input used to capture listitem input to add to your list
 const InputBar = (props)=>{
 
 let newTaskValue='';

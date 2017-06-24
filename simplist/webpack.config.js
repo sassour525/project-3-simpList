@@ -3,7 +3,7 @@ module.exports = {
   // This is the entry point or start of our react applicaton
   entry: "./app/app.js",
 
-  // The plain compiled JavaScript will be output into this file
+  // The plain compiled Javascript will be output into this file
   output: {
     filename: "public/bundle.js"
   },
