@@ -1,79 +1,84 @@
-html, body {
-	background: url('../images/notebook.png');
+html,
+body {
+    background: url('../images/notebook.png');
 }
 
 .container {
-	margin-top: 50px;
-	text-align: center;
-    
+    margin-top: 50px;
+    text-align: center;
 }
 
-#email, #password {
-  	padding: 10px;
+#email,
+#password {
+    padding: 10px;
     width: 300px;
 }
 
 .login {
-	width: 200px;
-	background-color: #4286f4;
-	color: white;
-	border-color: #4286f4;
+    width: 200px;
+    background-color: #4286f4;
+    color: white;
+    border-color: #4286f4;
 }
 
-.panel-default > .panel-heading {
-	background-color: #4286f4;
+.panel-default>.panel-heading {
+    background-color: #4286f4;
 }
 
-.panel-heading > h5 {
-	color: white;
+.panel-heading>h5 {
+    color: white;
 }
 
-.panel-heading, .panel-body {
-	padding: 20px;
+.panel-heading,
+.panel-body {
+    padding: 20px;
 }
 
 .profile-btns {
-  	padding: 10px;
+    padding: 10px;
     width: 300px;
     margin: 10px;
     background-color: #4286f4;
-	color: white;
-	border-color: #4286f4;
+    color: white;
+    border-color: #4286f4;
 }
 
-#dropdown, #new-list-item-txt-box, #share-list-txt-box, #new-list-name-box {
-	width: 300px;
-	margin: 2px;
+#dropdown,
+#new-list-item-txt-box,
+#share-list-txt-box,
+#new-list-name-box {
+    width: 300px;
+    margin: 2px;
 }
 
 #new-list-item-txt-box {
-	width: 270px;
-	margin-bottom: 20px;
+    width: 270px;
+    margin-bottom: 20px;
 }
 
 #add-list-item-btn {
-	margin-left: 5px;
+    margin-left: 5px;
 }
 
 h5 {
-	color: white;
+    color: white;
 }
 
 #save-list-name-txt {
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 .new-list-item {
-	border: thin solid #4286f4;
-	background-color: #4286f4;
-	margin: 10px;
+    border: thin solid #4286f4;
+    background-color: #4286f4;
+    margin: 10px;
 }
 
-.taskItemComplete h5{
-  text-decoration: line-through;
+.taskItemComplete h5 {
+    text-decoration: line-through;
 }
 
 .taskItemComplete {
-	background-color:rgb(255, 140, 140);
-	border-color: rgb(255, 140, 140);
+    background-color: rgb(255, 140, 140);
+    border-color: rgb(255, 140, 140);
 }
