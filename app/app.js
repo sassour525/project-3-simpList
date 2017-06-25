@@ -1,6 +1,7 @@
 // Include the Main React Dependencies
 import React from "react";
 import ReactDOM from "react-dom";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 // Including our Panel and Container components
 import Login from "./components/Login";
@@ -12,9 +13,9 @@ import CreateList from "./components/CreateList";
 
 // Creating an App component which renders a Panel inside of a Container
 const App = () => (
-  <Container>
+  <MuiThemeProvider>
     <Login />
-  </Container>
+  </MuiThemeProvider>
 );
 
 ReactDOM.render(<App />, document.getElementById("app"));
