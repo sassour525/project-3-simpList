@@ -5,9 +5,27 @@ class Login extends Component {
 	constructor() {
 		super();
 		this.state = {
-			username: '',
+			email: '',
 			password: ''
 		}
+	}
+
+	//handle text input in login form
+	handleChange(key) {
+		return function(e){
+	        let state = {};
+	        state[key] = e.target.value;
+	        this.setState(state);
+	    }.bind(this);
+	}
+
+	//handle form submit to grab state values
+	handleSubmit(event) {
+		event.preventDefault();
+		console.log(this.state.email);
+		console.log(this.state.password);
+
+		//user values input to check with passport to confirm credentials are valid
 	}
 
 	render() {
@@ -18,12 +36,12 @@ class Login extends Component {
 				</div>
 				<div className="panel-body">
 						<div className="row">
-							<form className="col s12">
+							<form className="col s12" onSubmit={this.handleSubmit}>
 								<div className="row">
-									<input id="email" type="email"  placeholder="email" className="validate" />
+									<input id="email" type="email" value={this.state.email} onChange={this.handleChange('email')} placeholder="email" className="validate" />
 								</div>
 								<div className="row">
-									<input id="password" type="password" placeholder="password" className="validate" />
+									<input id="password" type="password" value={this.state.password} onChange={this.handleChange('password')} placeholder="password" className="validate" />
 								</div>
 								<div className="row">
 									<br/>
