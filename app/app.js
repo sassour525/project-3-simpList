@@ -1,6 +1,7 @@
 // Include the Main React Dependencies
 import React from "react";
 import ReactDOM from "react-dom";
+import routes from "./config/routes";
 
 // Including our Panel and Container components
 import Login from "./components/Login";
@@ -17,4 +18,4 @@ const App = () => (
   </Container>
 );
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(routes, document.getElementById("app"));
