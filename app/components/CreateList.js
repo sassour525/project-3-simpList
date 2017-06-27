@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import ListItem from './ListItem.js';
 import InputBar from './InputBar.js'
 
+import RaisedButton from "material-ui/RaisedButton";
+import Paper from "material-ui/Paper";
+import TextField from "material-ui/TextField";
+
+
 //component used for creating a new list. Uses InputBar and ListItem
 class CreateList extends Component{
 
@@ -31,6 +36,8 @@ class CreateList extends Component{
         };    
     };
     render(){
+
+
         return(
           <div className="panel panel-default">
             <div className="panel-heading">
