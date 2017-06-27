@@ -1,11 +1,13 @@
 html,
 body {
     background: url('../images/notebook.png');
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
     margin-top: 50px;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 #email,
@@ -19,14 +21,16 @@ body {
     background-color: #4286f4;
     color: white;
     border-color: #4286f4;
+    font-family: 'Roboto', sans-serif;
 }
 
 .panel-default>.panel-heading {
-    background-color: #4286f4;
+    background-color: #00bcd4;
 }
 
 .panel-heading>h5 {
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .panel-heading,
@@ -81,4 +85,10 @@ h5 {
 .taskItemComplete {
     background-color: rgb(255, 140, 140);
     border-color: rgb(255, 140, 140);
+}
+
+#onScreenTxt {
+    font-family: 'Roboto', sans-serif;
+    color: #66829f;
+    /*font-weight: bold;*/
 }
