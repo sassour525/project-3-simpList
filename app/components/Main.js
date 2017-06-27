@@ -5,6 +5,8 @@ import Login from "./login.js";
 import Profile from "./Profile.js";
 import ListItem from "./ListItem.js";
 import SavedPanel from "./SavedPanel.js";
+import SharedPanel from "./SharedPanel.js";
+import CreateList from "./CreateList.js";
 
 class Main extends Component {
 
@@ -17,7 +19,9 @@ class Main extends Component {
                     <p> this is rendering </p>
                     <Route exact path="/" render={() => <Profile />} />
                     <Route path="/login" render={() => <Login />} />
-                    <Route path="/panel" render={() => <SavedPanel />} />
+                    <Route path="/saved" render={() => <SavedPanel />} />
+                    <Route path="/shared" render={() => <SharedPanel />} />
+                    <Route path="/create" render={() => <CreateList />} />
                 </div>
             </div>
         );

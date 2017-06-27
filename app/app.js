@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import routes from "./config/routes";
 
 // Including our Panel and Container components
-import Login from "./components/Login";
+import Login from "./components/login";
 import SavedPanel from "./components/SavedPanel";
 import SharedPanel from "./components/SharedPanel";
 import Container from "./components/Container";
