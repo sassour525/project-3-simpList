@@ -32,12 +32,12 @@ class SavedPanel extends Component {
       todoList: [{task: "Saved-task1", completed: false}, {task: "Saved-task2", completed: false}],
       output: []
     };
-    // Binding handleDropdownSelect to our component since we'll be passing
-    // This method to another component
+    // Binding functions to our component 
     this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
     this.renderDrop = this.renderDrop.bind(this);
     this.toggleClick = this.toggleClick.bind(this);
   }
+
   // This function is called by the Dropdown component whenever an option is chosen
   handleDropdownSelect(option) {
     // Setting this.state.selected to the dropdown option the user clicks
@@ -46,6 +46,7 @@ class SavedPanel extends Component {
 
   componentDidMount() {
     //DB call to get dropdownOptions
+    // let dropdownOptions = [];
     //push the query results into the array to pass along to DropDown to render
   }
 
@@ -87,7 +88,6 @@ class SavedPanel extends Component {
           <h5>Saved Lists</h5>
         </div>
         <div className="panel-body">
-        {/* Here is where we want to render our conditional content */}
         <Dropdown
           options={this.state.dropdownOptions}
           selected={this.state.selected}
@@ -101,5 +101,5 @@ class SavedPanel extends Component {
   }
 }
 
-// Exporting our Panel component
+// Exporting our SavedPanel component
 export default SavedPanel;

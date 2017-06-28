@@ -11,14 +11,13 @@ class CreateList extends Component{
             todoList:[],
             listName: '',
             addNewTask:(taskText)=>{
-               console.log(`${taskText} needs to be added to our list still...`);
-               if (taskText == ''){ return; } 
-               let newItem = {task: taskText, completed: false};
-               let currentList = [...this.state.todoList];
-               currentList.push(newItem);
-               this.setState({
-                    todoList: currentList
-               });
+              if (taskText == ''){ return; } 
+              let newItem = {task: taskText, completed: false};
+              let currentList = [...this.state.todoList];
+              currentList.push(newItem);
+              this.setState({
+                todoList: currentList
+              });
             }
         };
         // this.handleChange = this.handleChange.bind(this);  
