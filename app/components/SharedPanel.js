@@ -29,7 +29,7 @@ class SharedPanel extends Component {
         text: "Select a Shared List",
         value: "SELECT_SAVED",
       },
-      todoList: [{task: "Shared-task1", completed: false}, {task: "Shared-task2", completed: false}],
+      sharedTodoList: [{task: "Shared-task1", completed: false}, {task: "Shared-task2", completed: false}],
       output: []
     };
 
@@ -51,17 +51,17 @@ class SharedPanel extends Component {
 
   toggleClick(taskIndex) {
     console.log(taskIndex);
-    const newToDoList = [...this.state.todoList];
+    const newToDoList = [...this.state.sharedTodoList];
     newToDoList[taskIndex].completed = !newToDoList[taskIndex].completed;
     this.setState({
-        todoList: newToDoList,
+        sharedTodoList: newToDoList,
         output: []
     });
   }
 
   renderDrop() {
     if ( this.state.selected.value == 'SHOW_L1') {
-      {this.state.todoList.map((item,index)=>{
+      {this.state.sharedTodoList.map((item,index)=>{
         this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
         return this.state.output;
       })}

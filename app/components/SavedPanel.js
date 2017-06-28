@@ -29,11 +29,13 @@ class SavedPanel extends Component {
         text: "Select a Saved List",
         value: "SELECT_SAVED",
       },
-      todoList: [{task: "Saved-task1", completed: false}, {task: "Saved-task2", completed: false}],
-      output: []
+      savedTodoList: [{task: "Saved-task1", completed: false}, {task: "Saved-task2", completed: false}],
+      output: [],
+      sharedID: ''
     };
     // Binding functions to our component 
     this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);   
     this.renderDrop = this.renderDrop.bind(this);
     this.toggleClick = this.toggleClick.bind(this);
   }
@@ -52,17 +54,34 @@ class SavedPanel extends Component {
 
   toggleClick(taskIndex) {
       console.log(taskIndex);
-      const newToDoList = [...this.state.todoList];
+      const newToDoList = [...this.state.savedTodoList];
       newToDoList[taskIndex].completed = !newToDoList[taskIndex].completed;
       this.setState({
-          todoList: newToDoList,
+          savedTodoList: newToDoList,
           output: []
       });
   }
 
+  handleChange(key) {
+    return function(e){
+      let state = {};
+      state[key] = e.target.value;
+      this.setState(state);
+      console.log(this.state.listName);
+    }.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    //sharedID to save
+    console.log(this.state.sharedID);
+
+    //db call 
+  };
+
   renderDrop() {
     if ( this.state.selected.value == 'SHOW_L1') {
-      {this.state.todoList.map((item,index)=>{
+      {this.state.savedTodoList.map((item,index)=>{
             this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
             return this.state.output;
       })}
@@ -88,6 +107,10 @@ class SavedPanel extends Component {
           <h5>Saved Lists</h5>
         </div>
         <div className="panel-body">
+        <form id="share-form" onSubmit={this.handleSubmit}>
+          <input id="shareID-txt" type="text" value={this.state.listName} onChange={this.handleChange('sharedID')} placeholder="User ID"/>
+          <button id="share-list-btn">Share List</button>
+        </form>
         <Dropdown
           options={this.state.dropdownOptions}
           selected={this.state.selected}
