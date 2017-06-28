@@ -10,11 +10,4 @@ import SharedPanel from "./components/SharedPanel";
 import Profile from "./components/Profile";
 import CreateList from "./components/CreateList";
 
-// Creating an App component which renders a Panel inside of a Container
-// const App = () => (
-//   <Container>
-//     <CreateList />
-//   </Container>
-// );
-
 ReactDOM.render(routes, document.getElementById("app"));
