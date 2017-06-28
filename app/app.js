@@ -7,7 +7,6 @@ import routes from "./config/routes";
 import Login from "./components/Login";
 import SavedPanel from "./components/SavedPanel";
 import SharedPanel from "./components/SharedPanel";
-import Container from "./components/Container";
 import Profile from "./components/Profile";
 import CreateList from "./components/CreateList";
 
