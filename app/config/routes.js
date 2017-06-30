@@ -1,26 +1,25 @@
-
 import React from "react";
-import router from "react-router";
+import { Route, BrowserRouter } from "react-router-dom";
 
-var Route = router.Route;
-var Router = router.Router;
-var hashHistory = router.hashHistory;
-var indexRoute = router.IndexRoute;
+import Login from "../components/Login.js";
+import Profile from "../components/Profile.js";
+import ListItem from "../components/ListItem.js";
+import SavedPanel from "../components/SavedPanel.js";
+import SharedPanel from "../components/SharedPanel.js";
+import CreateList from "../components/CreateList.js";
 
-var Login = require('../components/Login');
-var Profile = require('../components/Profile');
-var CreateList = require('../components/CreateList');
-var SavedList = require('../components/SavedList');
-var SharedList = require('../components/SharedList');
-
-module.exports = (
-    <Router history={hashHistory}>
-        <Route path="/" component={Login}>
-            <Route path="profile" component={Profile} />
-            <Route path="createlist" component={CreateList} />
-            <Route path="savedlist" component={SavedList} />
-            <Route path="sharedlist" component={SharedList} />
-        </Route>
-    </Router>
-
-);
+export const makeMainRoutes = () => {
+  return (
+    <BrowserRouter history={history} component={Profile}>
+      <div className="container">
+        <div>
+          <Route exact path="/" render={() => <Profile />} />
+          <Route path="/login" render={() => <Login />} />
+          <Route path="/saved" render={() => <SavedPanel />} />
+          <Route path="/shared" render={() => <SharedPanel />} />
+          <Route path="/create" render={() => <CreateList />} />
+        </div>
+      </div>
+    </BrowserRouter>
+  );
+}

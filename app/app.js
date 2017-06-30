@@ -1,21 +1,8 @@
 // Include the Main React Dependencies
 import React from "react";
 import ReactDOM from "react-dom";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { makeMainRoutes } from "./config/routes";
 
-// Including our Panel and Container components
-import Login from "./components/Login";
-import SavedPanel from "./components/SavedPanel";
-import SharedPanel from "./components/SharedPanel";
-import Container from "./components/Container";
-import Profile from "./components/Profile";
-import CreateList from "./components/CreateList";
+const routes = makeMainRoutes();
 
-// Creating an App component which renders a Panel inside of a Container
-const App = () => (
-  <MuiThemeProvider>
-    <Login />
-  </MuiThemeProvider>
-);
-
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(routes, document.getElementById("app"));

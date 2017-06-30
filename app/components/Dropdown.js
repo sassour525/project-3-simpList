@@ -26,8 +26,6 @@ class Dropdown extends Component {
   }
   // renderList returns one li tag for each option prop we're passed
   // Using option.value ("SHOW_CAT", "SHOW_LOREM", etc)
-  // If we were dynamically adding and removing these li tags, we'd worry about
-  // using a uuid. No chance of name collisions here.
   renderList() {
     return this.props.options.map(option => (
       <li
