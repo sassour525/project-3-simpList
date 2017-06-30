@@ -9,6 +9,7 @@
     "express": "^4.15.3",
     "jwt-decode": "^2.2.0",
     "material-ui": "^1.0.0-alpha.20",
+    "material-ui-icons": "^1.0.0-alpha.19",
     "mongoose": "^4.11.0",
     "morgan": "^1.8.2",
     "react": "^15.6.1",
