@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-js": "^8.8.0",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "jwt-decode": "^2.2.0",
     "mongoose": "^4.10.7",
     "morgan": "^1.8.2",
     "react": "^15.6.1",
