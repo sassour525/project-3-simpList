@@ -8,8 +8,6 @@ import SavedPanel from "../components/SavedPanel.js";
 import SharedPanel from "../components/SharedPanel.js";
 import CreateList from "../components/CreateList.js";
 
-import Main from "../components/Main.js";
-
 export const makeMainRoutes = () => {
   return (
     <BrowserRouter history={history} component={Profile}>
