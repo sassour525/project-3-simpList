@@ -1,15 +1,18 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var bluebird = require("bluebird");
-var logger = require("morgan");
-var mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
+const bluebird = require("bluebird");
+const logger = require("morgan");
+let mongoose = require("mongoose");
+
+//const jwt = require("express-jwt");
+//const jwks = require('jwks-rsa');
 
 mongoose.Promise = bluebird;
 
-var routes = require("./routes/routes");
+const routes = require("./routes/routes");
 
-var app = module.exports = express();
-var PORT = process.env.PORT || 3000;
+const app = module.exports = express();
+const PORT = process.env.PORT || 3000;
 
 if(process.env.NODE_ENV !== "test"){
   app.use(logger("dev"));

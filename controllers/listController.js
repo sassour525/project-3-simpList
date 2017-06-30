@@ -4,58 +4,46 @@ module.exports = {
 
     find: function (req, res) {
 
-        List.find({})
-            .exec(function (err, doc) {
-
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    res.send(doc);
-                }
-
-            });
+        List.findOne(
+            { _id: req.params.id }).then(function (foundList) {
+                res.json(foundList);
+            }).catch(function (err) {
+                res.send("There was an error finding that list")
+            })
 
     },
 
     create: function (req, res) {
         var newList = new List(req.body);
 
-        console.log(req.body);
-
-        newList.save(function (err, doc) {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                res.send(doc);
-            }
-        });
-    },
-
-    update: function(req, res) {
-        User.findOneAndUpdate(
-            {_id: req.params.id},
-            {$set: req.body},
-            {new: true}).then(function (updatedList) {
-            res.send("The list has been updated!")
+        newList.save().then(function (createdList) {
+            res.send("The list has been created")
         }).catch(function (err) {
-            res.send("There was an error updating the list")
+            console.log(err);
+            res.send("There was an error creating the list!")
         })
     },
 
-    destroy: function(req, res) {
+    update: function (req, res) {
+        List.findOneAndUpdate(
+            { _id: req.params.id },
+            { $set: req.body },
+            { new: true }).then(function (updatedList) {
+                res.send("The list has been updated!")
+            }).catch(function (err) {
+                res.send("There was an error updating the list")
+            })
+    },
 
-        var id = req.params.id;
+    destroy: function (req, res) {
 
-        List.find({ _id: id }).remove().exec(function (err) {
-            if (err) {
+        Remove.remove({ _id: req.params.id })
+            .then(function (deletedList) {
+                res.send("The list has been deleted!")
+            }).catch(function (err) {
                 console.log(err);
-            }
-            else {
-                res.send("Deleted");
-            }
-        });
+                res.send("There was an error deleted the list.")
+            });
     }
 
 }

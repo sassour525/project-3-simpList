@@ -17,7 +17,11 @@ var UserSchema = new Schema({
     },
     password: {
         type: String
-    }
+    },
+    friends:[{
+        type: Schema.Types.ObjectId,
+        ref:"User"
+    }]
 });
 
 var User = mongoose.model("User", UserSchema);

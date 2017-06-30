@@ -4,7 +4,8 @@ module.exports = {
 
     find: function(req, res){
         User.findOne(
-            {_id: req.params.id}).then(function(foundUser){
+            {_id: req.params.id})
+            .then(function(foundUser){
                 res.json(foundUser);
             }).catch(function(err){
                 console.log(err);
