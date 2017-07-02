@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MenuItem from "material-ui/MenuItem";
 
 class Dropdown extends Component {
   constructor() {
@@ -28,12 +29,14 @@ class Dropdown extends Component {
   // Using option.value ("SHOW_CAT", "SHOW_LOREM", etc)
   renderList() {
     return this.props.options.map(option => (
-      <li
+      <MenuItem   /*<------- added MenuItem for materail-ui*/
+        value={option.index} /*<---- need index for materail-ui ie 1,2,3 for dropdown to build correctly  */
         onClick={() => this.handleDropdownSelect(option)}
         key={option.value}
+        primaryText={option.text} /*<--- this will be the text in the Material-ui dropdown menu*/
       >
         <a>{option.text}</a>
-      </li>
+      </MenuItem>
     ));
   }
   // If our component's open state is true, give the dropdown div a class of "open"

@@ -68,43 +68,27 @@ class Login extends Component {
 				</div>
 
 			
-				{/*<Paper style={paperStyle1} zDepth={3}>
-				<div className="col-sm-6">
-					<form>							
-						<TextField id="email" type="email" hintText="You Email Address" floatingLabelText="Enter Email Address:" style={textFieldStyle} underlineStyle={{display:'none'}}/>
-					
-						<br/>
-						<TextField id="password" type="password" hintText="Your Password" floatingLabelText="Enter Password" style={textFieldStyle} underlineStyle={{display:'none'}}/>
-			
-						<br/><br/>
-						<RaisedButton label="Login" primary={true} style={buttonStyle} onClick={this.handleClick} onTouchTap={this.handleTouchTap}/>
-						<RaisedButton label="New User" secondary={true} style={buttonStyle} onClick={this.handleClick} onTouchTap={this.handleTouchTap}/>
-					</form>	*/}
-
 				<div className="panel-body">
-						<div className="row">
-							<form className="col s12" onSubmit={this.handleSubmit}>
-								<div className="row">
-									<input id="email" type="email" value={this.state.email} onChange={this.handleChange('email')} placeholder="email" className="validate" />
-								</div>
-								<div className="row">
-									<input id="password" type="password" value={this.state.password} onChange={this.handleChange('password')} placeholder="password" className="validate" />
-								</div>
-								<div className="row">
-									<br/>
-									<button type="submit" className='login'> Login </button>
-								</div>
+					<div className="row">
+						<div className="col-sm-6">
+							<form>							
+								<TextField id="email" type="email" value={this.state.email} onChange={this.handleChange('email')} hintText="You Email Address" floatingLabelText="Enter Email Address:" className="validate" style={textFieldStyle} underlineStyle={{display:'none'}}/>
+							
+								<br/>
+								<TextField id="password" type="password" value={this.state.password} onChange={this.handleChange('password')} hintText="Your Password" floatingLabelText="Enter Password" className="calidate" style={textFieldStyle} underlineStyle={{display:'none'}}/>
+					
+								<br/><br/>
+								<RaisedButton label="Login" type="submit" primary={true} style={buttonStyle} onClick={this.handleClick} onTouchTap={this.handleTouchTap}/>
+								{/*<RaisedButton label="New User" secondary={true} style={buttonStyle} onClick={this.handleClick} onTouchTap={this.handleTouchTap}/>*/}
 							</form>
 						</div>
-				</div>
 
-				{/*<div className="col-sm-6">
-					<Paper style={paperStyle2} zDepth={1}>
-						<p id="onScreenTxt">If you are a new user please enter your info and press the New User button</p>
-					</Paper>
-				</div>
-				</Paper>	*/}
+						<div className="col-sm-6">
+						<p id="onScreenTxt">Welcome text here, brief app description and request user to login</p>
+						</div>
 
+					</div>
+				</div>
 			</div>
 		);
 	}

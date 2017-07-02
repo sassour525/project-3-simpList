@@ -3,6 +3,8 @@ import React, { Component } from "react";
 // Importing our dropdown component
 import Dropdown from "./Dropdown";
 import ActionableListItem from './ActionableListItem.js';
+import DropDownMenu from "material-ui/DropDownMenu";
+import MenuItem from "material-ui/MenuItem";
 
 // Defining a list of dropwdown options here
 const dropdownOptions = [
@@ -32,6 +34,18 @@ class SavedPanel extends Component {
       todoList: [{task: "Saved-task1", completed: false}, {task: "Saved-task2", completed: false}],
       output: []
     };
+
+    // Need the below constructor for Materail-ui dropdown menu
+    // constructor(props){
+    //   super(props);
+    //   this.state = {value: 1};
+    // }
+
+    // handleChange = (event, index, value) => this.setState({value});
+
+
+
+
     // Binding handleDropdownSelect to our component since we'll be passing
     // This method to another component
     this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
@@ -88,7 +102,8 @@ class SavedPanel extends Component {
         </div>
         <div className="panel-body">
         {/* Here is where we want to render our conditional content */}
-        <Dropdown
+        <DropDownMenu  /*<-------added tag for materail-ui menu     */
+          value={this.state.value} /*<-------added value need for materail-ui menu but requires a constructor statement     */
           options={this.state.dropdownOptions}
           selected={this.state.selected}
           handleSelect={this.handleDropdownSelect}  
