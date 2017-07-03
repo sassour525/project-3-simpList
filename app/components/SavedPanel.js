@@ -25,7 +25,7 @@ class SavedPanel extends Component {
   constructor() {
     super();
     this.state = {
-      dropdownOptions,
+      dropdownOptions: [],
       selected: {
         text: "Select a Saved List",
         value: "SELECT_SAVED",
@@ -51,6 +51,9 @@ class SavedPanel extends Component {
     //DB call to get dropdownOptions
     // let dropdownOptions = [];
     //push the query results into the array to pass along to DropDown to render
+    // helpers.getSavedLists().then(function(response) {
+    //   this.setState({ dropdownOptions: response.data });
+    // }.bind(this));
   }
 
   toggleClick(taskIndex) {
@@ -81,7 +84,22 @@ class SavedPanel extends Component {
   };
 
   renderDrop() {
-    if ( this.state.selected.value == 'SHOW_L1') {
+
+    // for (var i = 0; i < dropdownOptions.length; i++) {
+    //   if (this.state.selected.value == dropdownOptions[i].value) {
+    //     helpers.getListItems(dropdownOptions[i].value).then(function(response) {
+
+    //       this.setState({ savedTodoList: response.data }); 
+
+    //       {this.state.savedTodoList.map((item,index)=>{
+    //         this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
+    //         return this.state.output;
+    //       })}
+    //     }.bind(this));
+    //   }
+    // } 
+
+    if (this.state.selected.value == 'SHOW_L1') {
       {this.state.savedTodoList.map((item,index)=>{
             this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
             return this.state.output;

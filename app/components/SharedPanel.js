@@ -25,7 +25,7 @@ class SharedPanel extends Component {
   constructor() {
     super();
     this.state = {
-      dropdownOptions,
+      dropdownOptions: [],
       selected: {
         text: "Select a Shared List",
         value: "SELECT_SAVED",
@@ -48,6 +48,9 @@ class SharedPanel extends Component {
   componentDidMount() {
     //DB call to get dropdownOptions
     //push the query results into the array to pass along to DropDown to render
+    // helpers.getSharedLists().then(function(response) {
+    //   this.setState({ dropdownOptions: response.data });
+    // }.bind(this));
   }
 
   toggleClick(taskIndex) {

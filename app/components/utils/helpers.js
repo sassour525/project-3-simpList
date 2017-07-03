@@ -8,7 +8,7 @@ var helper = {
 		return axios.get();
 	},
 
-	getSharedList = () => {
+	getSharedLists = () => {
 		return axios.get();
 	},
 
