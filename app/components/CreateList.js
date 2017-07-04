@@ -7,6 +7,7 @@ import Paper from "material-ui/Paper";
 import TextField from "material-ui/TextField";
 
 
+
 //component used for creating a new list. Uses InputBar and ListItem
 class CreateList extends Component{
 
@@ -21,13 +22,23 @@ class CreateList extends Component{
                let newItem = {task: taskText, completed: false};
                let currentList = [...this.state.todoList];
                currentList.push(newItem);
+              //  console.log("Current List= " + currentList);
                this.setState({
                     todoList: currentList
                });
             }
         };
         // this.handleChange = this.handleChange.bind(this);  
-        this.handleSubmit = this.handleSubmit.bind(this);   
+        this.handleSubmit = this.handleSubmit.bind(this); 
+    };
+  
+    onRequestDelete(index) {
+      // this.todoList = this.state.todoList;
+      // const chipToDelete = this.todoList.map((chip) => chip.key).indexOf(key);
+      // this.todoList.splice(chipToDelete,1);
+      // this.setState({todoList: this.todoList});
+      // alert('Deleted');
+      console.log(ListItem);
     };
 
     //handle text input in list name text box
@@ -52,7 +63,12 @@ class CreateList extends Component{
     };
 
     render(){
-
+      const buttonStyle ={
+          margin: 20,
+        };
+      const textFieldStyle={
+			  margin: 20,
+		    };
 
         return(
           <div className="panel panel-default">
@@ -63,12 +79,12 @@ class CreateList extends Component{
               <InputBar addTask={this.state.addNewTask} />
               <div>
                 {this.state.todoList.map((item,index)=>{
-                  return <ListItem task={item.task} key={index} taskIndex={index}/>
+                  return <ListItem task={item.task} key={index} taskIndex={index} onRequestDelete={this.onRequestDelete} />
                 })}
               </div>
               <form id="list-name-form" onSubmit={this.handleSubmit}>
-                <input id="save-list-name-txt" type="text" value={this.state.listName} onChange={this.handleChange('listName')} placeholder="List Name"/>
-                <button id="save-list-btn">Save List</button>
+                <TextField id="save-list-name-txt" type="text" value={this.state.listName} onChange={this.handleChange('listName')} hintText="List Name" floatingLabelText="Enter a List Name" style={textFieldStyle} underlineStyle={{display:'none'}} />
+                <RaisedButton id="save-list-btn" primary={true} label="Save List" />
               </form>
             </div>
           </div>
