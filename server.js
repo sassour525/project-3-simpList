@@ -4,6 +4,11 @@ var bluebird = require("bluebird");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+// var List = require("./models/List.js");
+// var ListItem = require("./models/ListItem.js");
+// var User = require("./models/User.js");
+// var Comments = require("./models/Comments/js");
+
 mongoose.Promise = bluebird;
 
 var routes = require("./routes/routes");
@@ -42,3 +47,33 @@ db.once("open", function () {
         console.log("Connected to mongoose. App listening on PORT: " + PORT);
     });
 });
+
+
+// // Routes
+// // -------------------------------------------------
+
+// app.get('/api', function(req,res){
+//     List.find({}).exec(function(err,doc){
+//         var lists = [];
+//         doc.forEach(function(lists){
+//             lists.push({
+//                 title:lists.title,
+//                 date:lists.date,
+//                 owner:lists.owner,
+//                 contributors:lists.contributors,
+//                 listItems:lists.listItems,
+//                 comments:lists.comments
+//             });
+//         });
+//         res.send(lists);
+//     });
+// }); 
+
+// app.post('/api', function(req,res){
+//     List.create({
+//         listId:req.body.id,
+//         title:req.body.title,
+//         date:req.body.date,
+
+//     })
+// });
