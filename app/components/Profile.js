@@ -20,6 +20,9 @@ class Profile extends Component {
 		            <div className="row">
 		              <Link to="/saved"><button type="submit" className="profile-btns" id="view-saved-list-btn"> View Saved Lists </button></Link>
 		            </div>
+                    <div className="row">
+		              <Link to="/login"><button type="submit" className="profile-btns" id="view-saved-list-btn"> Login </button></Link>
+		            </div>
 		            <div className="row">
 		              <Link to="/shared"><button type="submit" className="profile-btns" id="view-shared-list-btn"> View Shared Lists </button></Link>
 		            </div>
