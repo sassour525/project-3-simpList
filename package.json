@@ -3,11 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-js": "^8.8.0",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+<<<<<<< HEAD
     "express-jwt": "^5.3.0",
     "mongoose": "^4.10.7",
+=======
+    "jwt-decode": "^2.2.0",
+    "material-ui": "^1.0.0-alpha.20",
+    "material-ui-icons": "^1.0.0-alpha.19",
+    "mongoose": "^4.11.0",
+>>>>>>> 59b7ff54ef90c849851fea5994f96fb8b147f02f
     "morgan": "^1.8.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

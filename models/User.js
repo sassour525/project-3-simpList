@@ -21,6 +21,14 @@ var UserSchema = new Schema({
     friends:[{
         type: Schema.Types.ObjectId,
         ref:"User"
+    }],
+    user_lists: [{
+        type: Schema.Types.ObjectId,
+        ref: "List"
+    }],
+    shared_lists: [{
+        type: Schema.Types.ObjectId,
+        ref: "List"
     }]
 });
 

@@ -1,6 +1,6 @@
 var express = require("express");
 
-var commentsController = require("../controllers/commentsController");
+var listItemController = require("../controllers/listItemController");
 
 var router = new express.Router();
 

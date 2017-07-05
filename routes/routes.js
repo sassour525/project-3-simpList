@@ -5,6 +5,7 @@ var router = new express.Router();
 var userRoutes = require("./userRoutes");
 var commentsRoutes = require("./commentsRoutes");
 var listRoutes = require("./listRoutes");
+var listItemRoutes = require("./listItemRoutes");
 
 router.use("/user", userRoutes);
 router.use("/comments", commentsRoutes);
