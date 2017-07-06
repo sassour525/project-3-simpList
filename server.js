@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const bluebird = require("bluebird");
 const logger = require("morgan");
@@ -22,7 +23,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-app.use(express.static('./public'));
+//app.use(express.static('./public'));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use("/", routes);
 
 //DB configuration
