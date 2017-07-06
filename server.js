@@ -22,9 +22,7 @@ if(process.env.NODE_ENV !== "test"){
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-//app.use(express.static('./public'));
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static("./public"));
 app.use("/", routes);
 
 //DB configuration
