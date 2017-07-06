@@ -25,7 +25,7 @@ export const makeMainRoutes = () => {
     <BrowserRouter history={history} component={Main}>
       <div className="container">
         <div>
-          <Route exact path="/" render={() => <Main />} />
+          <Route exact path="/" render={(props) => <Main auth={auth} {...props} />} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/saved" render={() => <SavedPanel />} />
           <Route path="/shared" render={() => <SharedPanel />} />
