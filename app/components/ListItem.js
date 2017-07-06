@@ -33,16 +33,16 @@ function handleTouchTap(){
     alert('Touched');
 }
 
-function onRequestDelete(key){
-    console.log("Key= " + key);
-    console.log("task= " + props.task)
-    //   props.todoList = this.todoList;
-      const chipToDelete = key;
-      console.log("CTD= " + chipToDelete);
-    //   props.todoList.splice(chipToDelete,1);
-    //   this.setState({todoList: props.todoList});
-    //   alert('Deleted');
-    };
+// function onRequestDelete(key){
+//     console.log("Key= " + key);
+//     console.log("task= " + props.task)
+//     //   props.todoList = this.todoList;
+//       const chipToDelete = key;
+//       console.log("CTD= " + chipToDelete);
+//     //   props.todoList.splice(chipToDelete,1);
+//     //   this.setState({todoList: props.todoList});
+//     //   alert('Deleted');
+//     };
 
     return (
         // <div className={`taskItem flex-container-row new-list-item ${statusClass}`}>
@@ -55,7 +55,7 @@ function onRequestDelete(key){
                 key={props.taskIndex}
                 className={'${statusClass}'}
                 backgroundColor={cyan200}
-                onRequestDelete= {() => onRequestDelete(props.taskIndex)}
+                onRequestDelete= {props.onRequestDelete}
                 onTouchTap={handleTouchTap}
                 style={styles.chip}
             >

@@ -30,6 +30,7 @@ class CreateList extends Component{
         };
         // this.handleChange = this.handleChange.bind(this);  
         this.handleSubmit = this.handleSubmit.bind(this); 
+        this.onRequestDelete = this.onRequestDelete.bind(this);
     };
   
     onRequestDelete(index) {
@@ -38,7 +39,7 @@ class CreateList extends Component{
       // this.todoList.splice(chipToDelete,1);
       // this.setState({todoList: this.todoList});
       // alert('Deleted');
-      console.log(ListItem);
+      console.log("41 " + this.state.todoList);
     };
 
     //handle text input in list name text box
