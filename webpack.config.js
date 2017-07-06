@@ -7,7 +7,7 @@ module.exports = {
   output: {
     filename: "public/bundle.js"
   },
-
+  
   // This section desribes the transformations we will perform
   module: {
     loaders: [

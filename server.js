@@ -29,19 +29,15 @@ app.use("/", routes);
 // -------------------------------------------------
 
 if (process.env.MONGODB_URI) {
-    mongoose = mongoose.connect(process.env.MONGODB_URI);
+    var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 } else {
-    mongoose = mongoose.connect("mongodb://localhost/simplist");
+    var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
 }
 
-var db = mongoose.connection;
-
-db.on("error", function (err) {
-    console.log("Mongoose Error: ", err);
-});
-
-db.once("open", function () {
-    app.listen(PORT, function () {
-        console.log("Connected to mongoose. App listening on PORT: " + PORT);
+dbConnection.then(function(db){
+    app.listen(PORT, function() {
+        console.log("Connected to mongood. App listening on PORT: " + PORT);
     });
+}).catch(function(err) {
+    console.log("Error connecting to mongoose")
 });

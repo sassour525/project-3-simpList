@@ -13,6 +13,7 @@ class Profile extends Component {
 				<div className="panel-heading">
 					<h5>Welcome Username</h5>
 				</div>
+				
 				<div className="panel-body">
 					<div className="row">
 		              <Link to="/create"><button type="submit" className="profile-btns" id="create-list-btn"> Create a new List </button></Link>
