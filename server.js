@@ -29,7 +29,7 @@ app.use("/", routes);
 // -------------------------------------------------
 
 if (process.env.MONGODB_URI) {
-    mongoose = mongoose.connect(process.env.MONGODB_URI);
+    mongoose = mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_jf78v9n8:56bm3oa98rek8bpju6obao96dm@ds013901.mlab.com:13901/heroku_jf78v9n8");
 } else {
     mongoose = mongoose.connect("mongodb://localhost/simplist");
 }
