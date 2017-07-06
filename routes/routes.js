@@ -12,8 +12,4 @@ router.use("/comments", commentsRoutes);
 router.use("/list", listRoutes);
 router.use("/listitem", listItemRoutes);
 
-router.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
-});
-
 module.exports = router;

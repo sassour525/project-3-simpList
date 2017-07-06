@@ -11,6 +11,7 @@ import SavedPanel from "../components/SavedPanel.js";
 import SharedPanel from "../components/SharedPanel.js";
 import CreateList from "../components/CreateList.js";
 import Main from "../components/Main.js";
+import Home from "../components/Home.js";
 
 const auth = new Auth();
 
@@ -26,6 +27,8 @@ export const makeMainRoutes = () => {
       <div className="container">
         <div>
           <Route exact path="/" render={(props) => <Main auth={auth} {...props} />} />
+          <Route path="/profile" render={(props) => <Profile auth={auth} {...props}/>} />
+          <Route path="/home" render={(props) => <Home auth={auth} {...props}/>} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/saved" render={() => <SavedPanel />} />
           <Route path="/shared" render={() => <SharedPanel />} />

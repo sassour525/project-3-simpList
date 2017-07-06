@@ -31,6 +31,13 @@ class Main extends Component {
             >
               Home
             </Button>
+            <Button
+              bsStyle="primary"
+              className="btn-margin"
+              onClick={this.goTo.bind(this, 'profile')}
+            >
+              Profile
+            </Button>
             {
               !isAuthenticated() && (
                   <Button

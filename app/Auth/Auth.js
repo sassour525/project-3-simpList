@@ -4,7 +4,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'stephenpino.auth0.com',
     clientID: '-Q5qAGWdUPcFyKY_L5s67tLARFSZBx4K',
-    redirectUri: 'http://localhost:3000',
+    redirectUri: 'http://localhost:3000/',
     audience: 'https://stephenpino.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid'
@@ -19,9 +19,11 @@ export default class Auth {
 
   login() {
     this.auth0.authorize();
+    console.log("login");
   }
 
   handleAuthentication() {
+    console.log("handle authentication");
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
@@ -39,6 +41,7 @@ export default class Auth {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+    console.log("Set Session working");
     // navigate to the home route
     history.replace('/home');
   }
@@ -56,6 +59,7 @@ export default class Auth {
     // Check whether the current time is past the 
     // access token's expiry time
     let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    console.log("Is authenticated:" + "expires at: " + expiresAt);
     return new Date().getTime() < expiresAt;
   }
 }
