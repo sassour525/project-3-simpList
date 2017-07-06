@@ -26,24 +26,30 @@ module.exports = {
         var newList = new List(req.body);
 
         newList.save().then(function (createdList) {
-            User.findOneAndUpdate(
-                { _id: req.body.userId },
-                { $set: { user_lists: createdList._id } }).then(function (updatedUser) {
-                    res.send("The list has been created")
-                }).catch(function (err) {
-                    console.log(err);
-                    res.send("There was an error creating the list!")
-                })
+           
+                res.send("The list has been created")
+            /* User.findOneAndUpdate(
+                 { _id: req.body.userId },
+                 { $set: { user_lists: createdList._id } }).then(function (updatedUser) {
+                     res.send("The list has been created")
+                 }).catch(function (err) {
+                     console.log(err);
+                     res.send("There was an error creating the list!")
+                 })
+         }).catch(function (err) {
+             console.log(err);
+             res.send("There was an error creating the list!")
+         })*/
         }).catch(function (err) {
-            console.log(err);
-            res.send("There was an error creating the list!")
-        })
+             console.log(err);
+             res.send("There was an error creating the list!")
+         })
     },
-    
-    share: function(req, res){
+
+    share: function (req, res) {
         User.findOneAndUpdate(
-            {_id: req.body.userId},
-            {$push: {shared_lists: req.body.listId}}).then(function(updatedShared){
+            { _id: req.body.userId },
+            { $push: { shared_lists: req.body.listId } }).then(function (updatedShared) {
                 res.send("The list has been shared");
             }).catch(function (err) {
                 res.send("There was an error sharing the list")

@@ -19,8 +19,7 @@ var ListSchema = new Schema({
       ref: "User"
   }],
   listItems: [{
-    type: Schema.Types.ObjectId,
-    ref: "ListItem"
+    type: Object
   }],
   comments: [{
       type: Schema.Types.ObjectId,
