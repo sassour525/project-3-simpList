@@ -37,7 +37,7 @@ const styles={
                 key={props.taskIndex}
                 className={'${statusClass}'}
                 backgroundColor={cyan200}
-                onRequestDelete= {props.onRequestDelete}
+                onRequestDelete= {() => props.onRequestDelete(props.taskIndex)}
                 onTouchTap={props.handleTouchTap}
                 style={styles.chip}
             >

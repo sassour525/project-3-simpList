@@ -41,9 +41,10 @@ class CreateList extends Component{
     onRequestDelete(index) {
       this.todoList = this.state.todoList;
       console.log(this.todoList[0]);
-      const chipToDelete = this.todoList.indexOf();
+      const chipToDelete = index;
+      // const chipToDelete = this.todoList.map((chip, index) => chip.index).indexOf();
       console.log("ChipToDelete " + chipToDelete);
-      this.todoList.splice(chipToDelete);
+      this.todoList.splice(chipToDelete,1);
       this.setState({todoList: this.todoList});      
     };
 
