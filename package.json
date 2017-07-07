@@ -37,6 +37,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "mocha --timeout 15000",
+    "test": "mocha --timeout 15000"
   }
 }
