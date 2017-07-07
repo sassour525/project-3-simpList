@@ -1,10 +1,11 @@
 import auth0 from 'auth0-js';
+import history from '../history.js'
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'stephenpino.auth0.com',
     clientID: '-Q5qAGWdUPcFyKY_L5s67tLARFSZBx4K',
-    redirectUri: 'http://localhost:3000/',
+    redirectUri: 'http://localhost:3000',
     audience: 'https://stephenpino.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid'
@@ -27,9 +28,9 @@ export default class Auth {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        history.replace('/home');
+        history.replace('/', []);
       } else if (err) {
-        history.replace('/home');
+        history.replace('/', []);
         console.log(err);
       }
     });
@@ -43,7 +44,7 @@ export default class Auth {
     localStorage.setItem('expires_at', expiresAt);
     console.log("Set Session working");
     // navigate to the home route
-    history.replace('/home');
+    history.replace('/', []);
   }
 
   logout() {
@@ -52,7 +53,7 @@ export default class Auth {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     // navigate to the home route
-    history.replace('/home');
+    history.replace('/', []);
   }
 
   isAuthenticated() {
