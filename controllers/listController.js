@@ -3,8 +3,8 @@ var List = require("../models/List");
 module.exports = {
 
     find: function (req, res) {
-        console.log(req.params.id);
-        List.find({_id: req.params.id})
+        console.log("This is your req param:" + req.params.id);
+        List.findOne({_id: req.params.id})
             .then(function(list) {
             res.json(list);
         }).catch(function(err) {

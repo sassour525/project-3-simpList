@@ -26,35 +26,32 @@ class SavedPanel extends Component {
     super();
     this.state = {
       dropdownOptions: [],
-      selected: {
-        text: "Select a Saved List",
-        value: "SELECT_SAVED",
-      },
+      selected: { text: 'Select a List'},
       savedTodoList: [],
-      output: [],
       sharedID: ''
     };
     // Binding functions to our component 
     this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);   
-    this.renderDrop = this.renderDrop.bind(this);
     this.toggleClick = this.toggleClick.bind(this);
   }
 
+  renderList(savedTodoList) {
+
+    return savedTodoList.map((item,index)=>{ 
+      return( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
+    });
+
+  }
   // This function is called by the Dropdown component whenever an option is chosen
   handleDropdownSelect(option) {
     // Setting this.state.selected to the dropdown option the user clicks
-    this.state.selected.text = option;
-    this.state.selected.text = value;
-    this.setState({ selected: option, output: [] });
-    console.log(this.state.selected.value);
-    helpers.getListItems(this.state.selected.value).then((list) => {
+    // this.setState({ selected: {text: option.text, value: option.value}, output: [] });
+    const _this = this;
+    helpers.getListItems(option.value).then((list) => {
+      // console.log(this.state.selected.value);
       console.log(list);
-      this.setState({ savedTodoList: list.listItems});
-            {this.state.savedTodoList.map((item,index)=>{
-            this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
-            return this.state.output;
-      })}
+      _this.setState({ savedTodoList: list.data.listItems});
     });
   }
 
@@ -101,41 +98,6 @@ class SavedPanel extends Component {
     //db call 
   };
 
-  renderDrop() {
-
-    // for (var i = 0; i < dropdownOptions.length; i++) {
-    //   if (this.state.selected.value == dropdownOptions[i].value) {
-    //     helpers.getListItems(dropdownOptions[i].value).then(function(response) {
-
-    //       this.setState({ savedTodoList: response.data }); 
-
-    //       {this.state.savedTodoList.map((item,index)=>{
-    //         this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
-    //         return this.state.output;
-    //       })}
-    //     }.bind(this));
-    //   }
-    // } 
-
-    // if (this.state.selected.value == 'SHOW_L1') {
-      // {this.state.savedTodoList.map((item,index)=>{
-      //       this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
-      //       return this.state.output;
-      // })}
-    // }
-    // } else if ( this.state.selected.value == 'SHOW_L2') {
-    //   {this.state.todoList.map((item,index)=>{
-    //         this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
-    //         return this.state.output;
-    //   })}
-    // } else if ( this.state.selected.value == 'SHOW_L3') {
-    //   {this.state.todoList.map((item,index)=>{
-    //         this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
-    //         return this.state.output;
-    //   })}
-    // }
-  }
-
   render() {
 
     return (
@@ -153,8 +115,7 @@ class SavedPanel extends Component {
           selected={this.state.selected}
           handleSelect={this.handleDropdownSelect}  
         />
-        {this.renderDrop()}
-        {this.state.output}
+        {this.renderList(this.state.savedTodoList)}
         </div>
       </div>
     );
