@@ -5,7 +5,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'stephenpino.auth0.com',
     clientID: '-Q5qAGWdUPcFyKY_L5s67tLARFSZBx4K',
-    redirectUri: 'http://localhost:3000',
+    redirectUri: 'https://still-depths-95992.herokuapp.com/',
     audience: 'https://stephenpino.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid profile'
