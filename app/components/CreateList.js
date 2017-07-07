@@ -53,22 +53,9 @@ class CreateList extends Component {
         let state = {};
         state[key] = e.target.value;
         this.setState(state);
-        console.log("55: " + this.state.listName);
+        // console.log("55: " + this.state.listName);
       }.bind(this);
     };
-    // this.handleChange = this.handleChange.bind(this);  
-    this.handleSubmit = this.handleSubmit.bind(this);
-  };
-
-  //handle text input in list name text box
-  handleChange(key) {
-    return function (e) {
-      let state = {};
-      state[key] = e.target.value;
-      this.setState(state);
-      console.log(this.state.listName);
-    }.bind(this);
-  };
 
   //handle form submit to grab state values
   handleSubmit(event) {
@@ -88,16 +75,17 @@ class CreateList extends Component {
     helpers.postList(finalList).then(function (data) {
       console.log(data);
     }.bind(this));
+  }
 
-    render(){
-      const buttonStyle ={
+    render() {
+      const buttonStyle = {
           margin: 20,
-        };
-      const textFieldStyle={
-			  margin: 20,
-		    };
+      };
+      const textFieldStyle = {
+			    margin: 20,
+      };
 
-        return(
+        return (
           <div className="panel panel-default">
             <div className="panel-heading">
               <h5>Create a new list</h5>
@@ -113,17 +101,11 @@ class CreateList extends Component {
               </div>
               <form id="list-name-form" onSubmit={this.handleSubmit}>
                 <TextField id="save-list-name-txt" type="text" value={this.state.listName} onChange={this.handleChange('listName')} hintText="List Name" floatingLabelText="Enter a List Name" style={textFieldStyle} underlineStyle={{display:'none'}} />
-                <RaisedButton id="save-list-btn" primary={true} label="Save List" />
+                <RaisedButton id="save-list-btn" type="submit" primary={true} label="Save List" />
               </form>
             </div>
           </div>
-          <form id="list-name-form" onSubmit={this.handleSubmit}>
-            <input id="save-list-name-txt" type="text" value={this.state.listName} onChange={this.handleChange('listName')} placeholder="List Name" />
-            <button id="save-list-btn">Save List</button>
-          </form>
-        </div>
-      </div>
-    )
+        );
   }
 };
 
