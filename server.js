@@ -41,7 +41,7 @@ if (process.env.MONGODB_URI) {
 
 dbConnection.then(function(db){
     app.listen(PORT, function() {
-        console.log("Connected to mongood. App listening on PORT: " + PORT);
+        console.log("Connected to mongod. App listening on PORT: " + PORT);
     });
 }).catch(function(err) {
     console.log("Error connecting to mongoose")
