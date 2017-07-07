@@ -5,4 +5,5 @@ import { makeMainRoutes } from "./config/routes";
 
 const routes = makeMainRoutes();
 
+//render Routes
 ReactDOM.render(routes, document.getElementById("app"));
