@@ -12,5 +12,4 @@ router.use("/comments", commentsRoutes);
 router.use("/list", listRoutes);
 router.use("/listitem", listItemRoutes);
 
-
 module.exports = router;

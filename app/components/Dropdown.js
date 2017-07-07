@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MenuItem from "material-ui/MenuItem";
 
 class Dropdown extends Component {
   constructor() {
@@ -27,12 +28,16 @@ class Dropdown extends Component {
   }
 
   // renderList returns one li tag for each option prop we're passed
-  // Using option.value ("SHOW_L1", "SHOW_L2", etc)
   renderList() {
     return this.props.options.map(option => (
-      <li onClick={() => this.handleDropdownSelect(option)} key={option.value}>
+      <MenuItem   /*<------- added MenuItem for materail-ui*/
+        value={option.index} /*<---- need index for materail-ui ie 1,2,3 for dropdown to build correctly  */
+        onClick={() => this.handleDropdownSelect(option)}
+        key={option.value}
+        primaryText={option.text} /*<--- this will be the text in the Material-ui dropdown menu*/
+      >
         <a>{option.text}</a>
-      </li>
+      </MenuItem>
     ));
   }
 

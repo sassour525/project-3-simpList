@@ -1,11 +1,13 @@
 html,
 body {
     background: url('../images/notebook.png');
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
     margin-top: 50px;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 #email,
@@ -19,14 +21,16 @@ body {
     background-color: #4286f4;
     color: white;
     border-color: #4286f4;
+    font-family: 'Roboto', sans-serif;
 }
 
 .panel-default>.panel-heading {
-    background-color: #4286f4;
+    background-color: #00bcd4;
 }
 
 .panel-heading>h5 {
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .panel-heading,
@@ -56,7 +60,8 @@ body {
     margin-bottom: 20px;
 }
 
-#add-list-item-btn, #share-list-btn {
+#add-list-item-btn,
+#share-list-btn {
     margin-left: 5px;
 }
 
@@ -88,10 +93,10 @@ h5 {
 }
 
 .profile-area img {
-  max-width: 150px;
-  margin-bottom: 20px;
+    max-width: 150px;
+    margin-bottom: 20px;
 }
 
 .panel-body h3 {
-  margin-top: 0;
+    margin-top: 0;
 }

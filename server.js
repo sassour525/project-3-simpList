@@ -1,12 +1,17 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const bluebird = require("bluebird");
 const logger = require("morgan");
-const path = require("path");
 let mongoose = require("mongoose");
 
 //const jwt = require("express-jwt");
 //const jwks = require('jwks-rsa');
+
+// var List = require("./models/List.js");
+// var ListItem = require("./models/ListItem.js");
+// var User = require("./models/User.js");
+// var Comments = require("./models/Comments/js");
 
 mongoose.Promise = bluebird;
 
@@ -27,16 +32,16 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static('./public'));
 app.use("/", routes);
 app.get("/*", function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 //DB configuration
 // -------------------------------------------------
 
 if (process.env.MONGODB_URI) {
-    var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
+  var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 } else {
-    var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
+  var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
 }
 
 dbConnection.then(function(db){
