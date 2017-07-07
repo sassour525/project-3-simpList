@@ -60,7 +60,8 @@ body {
     margin-bottom: 20px;
 }
 
-#add-list-item-btn {
+#add-list-item-btn,
+#share-list-btn {
     margin-left: 5px;
 }
 
@@ -70,6 +71,10 @@ h5 {
 
 #save-list-name-txt {
     margin-right: 5px;
+}
+
+#share-form {
+    margin-bottom: 10px;
 }
 
 .new-list-item {
@@ -87,8 +92,11 @@ h5 {
     border-color: rgb(255, 140, 140);
 }
 
-#onScreenTxt {
-    font-family: 'Roboto', sans-serif;
-    color: #66829f;
-    /*font-weight: bold;*/
+.profile-area img {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.panel-body h3 {
+    margin-top: 0;
 }

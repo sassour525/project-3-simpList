@@ -4,14 +4,45 @@ module.exports = {
 
     find: function(req, res){
         User.findOne(
-            {_id: req.params.id}).then(function(foundUser){
+            {_id: req.params.id})
+            .then(function(foundUser){
                 res.json(foundUser);
             }).catch(function(err){
                 console.log(err);
                 res.send("There was an error finding that user")
             })
     },
+    findList: function(req, res){
+        User.findOne(
+            {_id: req.params.userId}).populate("associated_lists")
+            .then(function(userWithLists){
+                res.json(userWithLists)
+            }).catch(function(err){
+                console.log(err);
+                res.send("There was an error finding that user")
+            })
+    },
 
+    findAllList: function(req, res){
+        User.findOne(
+            {_id: req.params.userId}).populate("associated_lists shared_lists")
+            .then(function(userWithAllLists){
+                res.json(userWithAllLists)
+            }).catch(function(err){
+                console.log(err);
+                res.send("There was an error finding that user and all lists")
+            })
+    },
+    sharedLists: function(req, res){
+        User.findOne(
+            {_id: req.params.userId}).populate("shared_lists")
+            .then(function(userWithSharedLists){
+                res.json(userWithSharedLists)
+            }).catch(function(err){
+                console.log(err);
+                res.send("There was an error finding that user and shared lists")
+            })
+    },
     create: function (req, res) {
         var newUser = new User(req.body);
 

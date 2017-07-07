@@ -8,16 +8,17 @@ import SvgIconFace from "material-ui/svg-icons/action/face";
 //regular list iem without "complete" button for creating a list
 const ListItem = (props)=>{
 
-    let statusClass='';
-    let buttonMessage='';
-    let taskIndex=props.taskIndex;
-    if(props.completed===true){
-        statusClass='taskItemComplete';
-        buttonMessage="Mark As Incomplete";
-    }else{
-        statusClass='taskItemIncomplete'
-        buttonMessage="Mark As Complete";
-    };
+  let statusClass='';
+  let buttonMessage='';
+  let taskIndex=props.taskIndex;
+  
+  if (props.completed===true) {
+    statusClass='taskItemComplete';
+    buttonMessage="Mark As Incomplete";
+  } else {
+    statusClass='taskItemIncomplete'
+    buttonMessage="Mark As Complete";
+  };
 
 const styles={
     chip:{
@@ -49,4 +50,5 @@ const styles={
     )
 };
 
+//export ListItem component
 export default ListItem;

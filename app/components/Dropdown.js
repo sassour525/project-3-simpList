@@ -8,25 +8,27 @@ class Dropdown extends Component {
     this.state = {
       open: false
     };
-    // Binding these methods to our component otherwise their 'this'
-    // will change
+    // Binding these methods to our component
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
   }
+
   // This method will toggle this component's "open" state
   toggleDropdown() {
     this.setState({
       open: !this.state.open
     });
   }
+
   // This method calls the parent component's (Panel's) handleDropdownSelect method
   handleDropdownSelect(option) {
     this.props.handleSelect(option);
     // Then it closes the dropdown
     this.toggleDropdown();
   }
+
   // renderList returns one li tag for each option prop we're passed
-  // Using option.value ("SHOW_CAT", "SHOW_LOREM", etc)
+  // Using option.value ("SHOW_L1", "SHOW_L2", etc)
   renderList() {
     return this.props.options.map(option => (
       <MenuItem   /*<------- added MenuItem for materail-ui*/
@@ -39,15 +41,13 @@ class Dropdown extends Component {
       </MenuItem>
     ));
   }
+
   // If our component's open state is true, give the dropdown div a class of "open"
   // otherwise the "open" class is removed. This lets us toggle our dropdown open and
   // closed without jQuery
   render() {
     return (
-      <div
-        style={this.props.style}
-        className={`dropdown ${this.state.open ? "open" : null}`}
-      >
+      <div style={this.props.style} className={`dropdown ${this.state.open ? "open" : null}`}>
         <button
           onClick={this.toggleDropdown}
           className="btn btn-default dropdown-toggle"

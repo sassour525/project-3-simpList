@@ -6,10 +6,10 @@ import TextField from "material-ui/TextField";
 //input used to capture listitem input to add to your list
 const InputBar = (props)=>{
 
-let newTaskValue='';
-let grabValue=(e)=>{
-    newTaskValue = e.target.value;
-};
+	let newTaskValue='';
+	let grabValue=(e)=>{
+	  newTaskValue = e.target.value;
+	};
 
 const ButtonStyle ={
     marginLeft:30,
@@ -29,4 +29,5 @@ const TestFieldStyle={
     )
 };
 
+//export InputBar component
 export default InputBar;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem.js';
 import InputBar from './InputBar.js'
+import helpers from '../utils/helpers.js'
 
 import RaisedButton from "material-ui/RaisedButton";
 import Paper from "material-ui/Paper";
@@ -17,15 +18,13 @@ class CreateList extends Component{
             todoList:[],
             listName: '',
             addNewTask:(taskText)=>{
-               console.log(`${taskText} needs to be added to our list still...`);
-               if (taskText == ''){ return; } 
-               let newItem = {task: taskText, completed: false};
-               let currentList = [...this.state.todoList];
-               currentList.push(newItem);
-              //  console.log("Current List= " + currentList);
-               this.setState({
-                    todoList: currentList
-               });
+              if (taskText == ''){ return; } 
+              let newItem = {task: taskText, completed: false};
+              let currentList = [...this.state.todoList];
+              currentList.push(newItem);
+              this.setState({
+                todoList: currentList
+              });
             }
         };
         this.handleChange = this.handleChange.bind(this);  
@@ -65,6 +64,17 @@ class CreateList extends Component{
       console.log(this.state.listName);
       //array of objects with list items input
       console.log(this.state.todoList);
+
+      var finalList = {
+        title: this.state.listName,
+        listItems: this.state.todoList
+      }
+
+      console.log(finalList);
+
+      helpers.postList(finalList).then(function(data) {
+        console.log(data);
+      }.bind(this));
 
       //db call to save list name 
     };

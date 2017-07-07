@@ -19,9 +19,9 @@ class Login extends Component {
 	//handle text input in login form
 	handleChange(key) {
 		return function(e){
-	        let state = {};
-	        state[key] = e.target.value;
-	        this.setState(state);
+	      let state = {};
+	      state[key] = e.target.value;
+	      this.setState(state);
 	    }.bind(this);
 	}
 
@@ -31,7 +31,7 @@ class Login extends Component {
 		console.log(this.state.email);
 		console.log(this.state.password);
 
-		//user values input to check with passport to confirm credentials are valid
+		//user values input to check with auth to confirm credentials are valid
 	}
 
 	render() {
@@ -94,4 +94,5 @@ class Login extends Component {
 	}
 }
 
+//export Login component
 export default Login;
