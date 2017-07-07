@@ -82,3 +82,12 @@ h5 {
     background-color: rgb(255, 140, 140);
     border-color: rgb(255, 140, 140);
 }
+
+.profile-area img {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.panel-body h3 {
+  margin-top: 0;
+}
