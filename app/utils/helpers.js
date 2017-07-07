@@ -4,16 +4,16 @@ import axios from "axios";
 // Helper functions for making API Calls
 var helper = {
 
-	getSavedLists = () => {
-		return axios.get();
-	},
+	// getSavedLists = () => {
+	// 	return axios.get();
+	// },
 
-	getSharedLists = () => {
-		return axios.get();
-	},
+	// getSharedLists = () => {
+	// 	return axios.get();
+	// },
 
-	postSaveList = (list) => {
-		return axios.post(, {list: list});
+	postList: (list) => {
+		return axios.post("/list/", {list: list});
 	},
 
 };

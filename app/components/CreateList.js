@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem.js';
 import InputBar from './InputBar.js'
+import helpers from '../utils/helpers.js'
 
 //component used for creating a new list. Uses InputBar and ListItem
 class CreateList extends Component{
@@ -41,6 +42,17 @@ class CreateList extends Component{
       console.log(this.state.listName);
       //array of objects with list items input
       console.log(this.state.todoList);
+
+      var finalList = {
+        title: this.state.listName,
+        listItems: this.state.todoList
+      }
+
+      console.log(finalList);
+
+      helpers.postList(finalList).then(function(data) {
+        console.log(data);
+      }.bind(this));
 
       //db call to save list name 
     };
