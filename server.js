@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const bluebird = require("bluebird");
 const logger = require("morgan");
+const path = require("path");
 let mongoose = require("mongoose");
 
 //const jwt = require("express-jwt");
@@ -22,8 +23,13 @@ if(process.env.NODE_ENV !== "test"){
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-app.use(express.static("./public"));
+
+
+app.use(express.static('./public'));
 app.use("/", routes);
+app.get("/*", function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+});
 
 //DB configuration
 // -------------------------------------------------
