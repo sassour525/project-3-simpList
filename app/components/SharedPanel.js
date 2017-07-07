@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
-// Importing our dropdown component
+// Importing our components
 import Dropdown from "./Dropdown";
 import ActionableListItem from './ActionableListItem.js';
+import helpers from "../utils/helpers.js";
 
 // Defining a list of dropwdown options here
 const dropdownOptions = [
@@ -24,16 +25,16 @@ class SharedPanel extends Component {
   constructor() {
     super();
     this.state = {
-      dropdownOptions,
+      dropdownOptions: [],
       selected: {
         text: "Select a Shared List",
         value: "SELECT_SAVED",
       },
-      todoList: [{task: "Shared-task1", completed: false}, {task: "Shared-task2", completed: false}],
+      sharedTodoList: [{task: "Shared-task1", completed: false}, {task: "Shared-task2", completed: false}],
       output: []
     };
-    // Binding handleDropdownSelect to our component since we'll be passing
-    // This method to another component
+
+    // Binding functions to our component
     this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
     this.renderDrop = this.renderDrop.bind(this);
     this.toggleClick = this.toggleClick.bind(this);
@@ -47,23 +48,26 @@ class SharedPanel extends Component {
   componentDidMount() {
     //DB call to get dropdownOptions
     //push the query results into the array to pass along to DropDown to render
+    // helpers.getSharedLists().then(function(response) {
+    //   this.setState({ dropdownOptions: response.data });
+    // }.bind(this));
   }
 
   toggleClick(taskIndex) {
-      console.log(taskIndex);
-      const newToDoList = [...this.state.todoList];
-      newToDoList[taskIndex].completed = !newToDoList[taskIndex].completed;
-      this.setState({
-          todoList: newToDoList,
-          output: []
-      });
+    console.log(taskIndex);
+    const newToDoList = [...this.state.sharedTodoList];
+    newToDoList[taskIndex].completed = !newToDoList[taskIndex].completed;
+    this.setState({
+        sharedTodoList: newToDoList,
+        output: []
+    });
   }
 
   renderDrop() {
     if ( this.state.selected.value == 'SHOW_L1') {
-      {this.state.todoList.map((item,index)=>{
-            this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
-            return this.state.output;
+      {this.state.sharedTodoList.map((item,index)=>{
+        this.state.output.push( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
+        return this.state.output;
       })}
     }
     // } else if ( this.state.selected.value == 'SHOW_L2') {
@@ -87,7 +91,6 @@ class SharedPanel extends Component {
           <h5>Shared Lists</h5>
         </div>
         <div className="panel-body">
-        {/* Here is where we want to render our conditional content */}
         <Dropdown
           options={this.state.dropdownOptions}
           selected={this.state.selected}
@@ -101,5 +104,5 @@ class SharedPanel extends Component {
   }
 }
 
-// Exporting our Panel component
+// Exporting our SharedPanel component
 export default SharedPanel;

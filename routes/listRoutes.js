@@ -4,6 +4,8 @@ var listController = require("../controllers/listController");
 
 var router = new express.Router();
 
+router.get("/all", listController.findAll);
+
 router.get("/:id", listController.find);
 
 router.get("/user/:userId", listController.findByUser);
