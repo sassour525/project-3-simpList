@@ -26,6 +26,7 @@ class Profile extends Component {
 				<div className="panel-heading">
 					<h5>Welcome {profile.name}</h5>
 				</div>
+				<pre>{JSON.stringify(profile, null, 2)}</pre>
 
 				<div className="panel-body">
 					<div className="row">
