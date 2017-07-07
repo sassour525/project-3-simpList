@@ -1,12 +1,13 @@
 import auth0 from 'auth0-js';
 import history from '../history.js'
+import { AUTH_CONFIG } from './auth0-variables';
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
-    domain: 'stephenpino.auth0.com',
-    clientID: '-Q5qAGWdUPcFyKY_L5s67tLARFSZBx4K',
-    redirectUri: 'http://localhost:3000/callback',
-    audience: 'https://stephenpino.auth0.com/userinfo',
+    domain: AUTH_CONFIG.domain,
+    clientID: AUTH_CONFIG.clientId,
+    redirectUri: AUTH_CONFIG.callbackUrl,
+    audience: `https://${AUTH_CONFIG.domain}/userinfo`,
     responseType: 'token id_token',
     scope: 'openid profile'
   });
