@@ -1,4 +1,5 @@
 import React from "react";
+import {MuiThemeProvider} from "material-ui/styles";
 import { Redirect, Route, BrowserRouter, HashRouter } from "react-router-dom";
 
 import Callback from '../Callback/Callback.js';
@@ -23,6 +24,7 @@ const handleAuthentication = (nextState, replace) => {
 
 export const makeMainRoutes = () => {
   return (
+    <MuiThemeProvider>
     <BrowserRouter history={history} component={Main}>
       <div className="container">
         <div>
@@ -45,7 +47,8 @@ export const makeMainRoutes = () => {
             return <Callback {...props} />
           }} />
         </div>
-      </div>
-    </BrowserRouter>
+        </div>
+      </BrowserRouter>
+    </MuiThemeProvider>
   );
 }

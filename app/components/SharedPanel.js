@@ -3,6 +3,8 @@ import React, { Component } from "react";
 // Importing our components
 import Dropdown from "./Dropdown";
 import ActionableListItem from './ActionableListItem.js';
+import DropDownMenu from "material-ui/DropDownMenu";
+import MenuItem from "material-ui/MenuItem";
 import helpers from "../utils/helpers.js";
 
 class SharedPanel extends Component {
