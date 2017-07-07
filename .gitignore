@@ -1,3 +1,4 @@
+app/Auth/auth0-variables.js
 # Logs
 logs
 *.log
@@ -59,4 +60,3 @@ typings/
 
 .DS_Store
 public/bundle.js
-app/Auth/auth0-variables.js
