@@ -35,8 +35,7 @@ export const makeMainRoutes = () => {
             )
           )} />
           {/*<Route path="/profile" render={(props) => <Profile auth={auth} {...props}/>} />*/}
-          <Route path="/home" render={(props) => {
-            handleAuthentication(props); <Home auth={auth} {...props}/>}} />
+          <Route path="/home" render={(props) => <Home auth={auth} {...props}/>} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/saved" render={() => <SavedPanel />} />
           <Route path="/shared" render={() => <SharedPanel />} />
