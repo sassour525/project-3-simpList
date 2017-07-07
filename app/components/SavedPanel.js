@@ -29,9 +29,9 @@ class SavedPanel extends Component {
       return (<ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index} />);
     });
   }
+  
   // This function is called by the Dropdown component whenever an option is chosen
   handleDropdownSelect(option) {
-    // Setting this.state.selected to the dropdown option the user clicks
     const _this = this;
     helpers.getListItems(option.value).then((list) => {
       console.log(list);
