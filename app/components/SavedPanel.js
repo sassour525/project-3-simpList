@@ -5,20 +5,6 @@ import Dropdown from "./Dropdown";
 import ActionableListItem from './ActionableListItem.js';
 import helpers from "../utils/helpers.js";
 
-// Defining a list of dropwdown options here
-// const dropdownOptions = [
-//   {
-//     text: "Test List 1",
-//     value: "SHOW_L1"
-//   }, {
-//     text: "Test List 2",
-//     value: "SHOW_L2"
-//   }, {
-//     text: "Test List 3",
-//     value: "SHOW_L3"
-//   }
-// ];
-
 class SavedPanel extends Component {
   // Initializing our dropdownOptions on state, setting a default selected option
   // Also setting all of our possible options using the dropdownOptions variable
@@ -37,37 +23,27 @@ class SavedPanel extends Component {
   }
 
   renderList(savedTodoList) {
-
     return savedTodoList.map((item,index)=>{ 
       return( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
     });
-
   }
   // This function is called by the Dropdown component whenever an option is chosen
   handleDropdownSelect(option) {
     // Setting this.state.selected to the dropdown option the user clicks
-    // this.setState({ selected: {text: option.text, value: option.value}, output: [] });
     const _this = this;
     helpers.getListItems(option.value).then((list) => {
-      // console.log(this.state.selected.value);
       console.log(list);
       _this.setState({ savedTodoList: list.data.listItems});
     });
   }
 
   componentDidMount() {
-    //DB call to get dropdownOptions
-    // let dropdownOptions = [];
     //push the query results into the array to pass along to DropDown to render
     helpers.getSavedList().then(function(response) {
       console.log(response);
       for (var i = 0; i < response.data.length; i++) {
         this.state.dropdownOptions.push({text: response.data[i].title, value: response.data[i]._id});
-        // this.setState({ 
-        //   dropdownOptions: response.data 
-        // });
       }
-      
     }.bind(this));
   }
 
@@ -86,7 +62,6 @@ class SavedPanel extends Component {
       let state = {};
       state[key] = e.target.value;
       this.setState(state);
-      console.log(this.state.listName);
     }.bind(this);
   }
 
