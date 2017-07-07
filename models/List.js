@@ -18,9 +18,9 @@ var ListSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "User"
   }],
-  listItems: [{
-    type: Object
-  }],
+  listItems: {
+    type: Array
+  },
   comments: [{
       type: Schema.Types.ObjectId,
       ref: "Comments"

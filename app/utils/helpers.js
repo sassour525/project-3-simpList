@@ -1,5 +1,5 @@
 // Include the axios package for performing HTTP requests (promise based alternative to request)
-import axios from "axios";
+var axios = require("axios");
 
 // Helper functions for making API Calls
 var helper = {
@@ -12,10 +12,18 @@ var helper = {
 	// 	return axios.get();
 	// },
 
-	postList: (list) => {
-		return axios.post("/list/", {list: list});
+	postList: function(list) {
+		return axios.post("/list/", list);
 	},
+
+	getSavedList: function() {
+		return axios.get("/list/all");
+	},
+
+	getListItems: function(listId) {
+		return axios.get("/list/" + listId);
+	}
 
 };
 
-export default helper;
+module.exports = helper;
