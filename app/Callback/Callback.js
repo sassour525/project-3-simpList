@@ -17,7 +17,6 @@ class Callback extends Component {
 
     return (
       <div style={style}>
-        <p>YO watup</p>
       </div>
     );
   }

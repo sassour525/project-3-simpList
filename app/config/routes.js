@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Redirect, Route, BrowserRouter, HashRouter } from "react-router-dom";
 
 import Callback from '../Callback/Callback';
 import Auth from '../Auth/Auth';
@@ -26,8 +26,15 @@ export const makeMainRoutes = () => {
     <BrowserRouter history={history} component={Main}>
       <div className="container">
         <div>
-          <Route exact path="/" render={(props) => <Main auth={auth} {...props} />} />
-          <Route path="/profile" render={(props) => <Profile auth={auth} {...props}/>} />
+          <Route exact path="/" render={(props) => { handleAuthentication(props); return <Main auth={auth} {...props} />}} />
+          <Route path="/profile" render={(props) => (
+            !auth.isAuthenticated() ? (
+              <Redirect to="/home"/>
+            ) : (
+              <Profile auth={auth} {...props} />
+            )
+          )} />
+          {/*<Route path="/profile" render={(props) => <Profile auth={auth} {...props}/>} />*/}
           <Route path="/home" render={(props) => <Home auth={auth} {...props}/>} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/saved" render={() => <SavedPanel />} />
