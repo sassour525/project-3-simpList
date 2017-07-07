@@ -3,7 +3,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const bluebird = require("bluebird");
 const logger = require("morgan");
-const path = require("path");
 let mongoose = require("mongoose");
 
 //const jwt = require("express-jwt");
