@@ -1,30 +1,71 @@
-import { Route, Link } from "react-router-dom";
-import React, { Component } from "react";
-
-//import components for routes
-import Login from "./Login.js";
-import Profile from "./Profile.js";
-import ListItem from "./ListItem.js";
-import SavedPanel from "./SavedPanel.js";
-import SharedPanel from "./SharedPanel.js";
-import CreateList from "./CreateList.js";
+import React, { Component } from 'react';
+import { Navbar, Button } from 'react-bootstrap';
 
 //Main component used to render routes
 class Main extends Component {
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
 
-    render() {
-      return (
-        <div className="container">
-          <div>
-            <Route exact path="/" render={() => <Profile />} />
-            <Route path="/login" render={() => <Login />} />
-            <Route path="/saved" render={() => <SavedPanel />} />
-            <Route path="/shared" render={() => <SharedPanel />} />
-            <Route path="/create" render={() => <CreateList />} />
-          </div>
-        </div>
-      );
-    }
+  login() {
+    this.props.auth.login();
+  }
+
+  logout() {
+    this.props.auth.logout();
+  }
+
+  render() {
+    const { isAuthenticated } = this.props.auth;
+
+    return (
+      <div>
+        <Navbar fluid>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#">Auth0 - React</a>
+            </Navbar.Brand>
+            <Button
+              bsStyle="primary"
+              className="btn-margin"
+              onClick={this.goTo.bind(this, 'home')}
+            >
+              Home
+            </Button>
+            <Button
+              bsStyle="primary"
+              className="btn-margin"
+              onClick={this.goTo.bind(this, 'profile')}
+            >
+              Profile
+            </Button>
+            {
+              !isAuthenticated() && (
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.login.bind(this)}
+                  >
+                    Log In
+                  </Button>
+                )
+            }
+            {
+              isAuthenticated() && (
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.logout.bind(this)}
+                  >
+                    Log Out
+                  </Button>
+                )
+            }
+          </Navbar.Header>
+        </Navbar>
+      </div>
+    );
+  }
 }
 
 //export Main component

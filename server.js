@@ -1,15 +1,18 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var bluebird = require("bluebird");
-var logger = require("morgan");
-var mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
+const bluebird = require("bluebird");
+const logger = require("morgan");
+let mongoose = require("mongoose");
+
+//const jwt = require("express-jwt");
+//const jwks = require('jwks-rsa');
 
 mongoose.Promise = bluebird;
 
-var routes = require("./routes/routes");
+const routes = require("./routes/routes");
 
-var app = module.exports = express();
-var PORT = process.env.PORT || 3000;
+const app = module.exports = express();
+const PORT = process.env.PORT || 3000;
 
 if(process.env.NODE_ENV !== "test"){
   app.use(logger("dev"));
@@ -26,19 +29,15 @@ app.use("/", routes);
 // -------------------------------------------------
 
 if (process.env.MONGODB_URI) {
-    mongoose = mongoose.connect(process.env.MONGODB_URI);
+    var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 } else {
-    mongoose = mongoose.connect("mongodb://localhost/simplist");
+    var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
 }
 
-var db = mongoose.connection;
-
-db.on("error", function (err) {
-    console.log("Mongoose Error: ", err);
-});
-
-db.once("open", function () {
-    app.listen(PORT, function () {
-        console.log("Connected to mongoose. App listening on PORT: " + PORT);
+dbConnection.then(function(db){
+    app.listen(PORT, function() {
+        console.log("Connected to mongood. App listening on PORT: " + PORT);
     });
+}).catch(function(err) {
+    console.log("Error connecting to mongoose")
 });
