@@ -27,21 +27,21 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static('./public'));
 app.use("/", routes);
 app.get("/*", function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 //DB configuration
 // -------------------------------------------------
 
 if (process.env.MONGODB_URI) {
-    var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
+  var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 } else {
-    var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
+  var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
 }
 
 dbConnection.then(function(db){
     app.listen(PORT, function() {
-        console.log("Connected to mongood. App listening on PORT: " + PORT);
+      console.log("Connected to mongood. App listening on PORT: " + PORT);
     });
 }).catch(function(err) {
     console.log("Error connecting to mongoose")

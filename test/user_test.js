@@ -20,11 +20,11 @@ describe("User tests", () => {
     });
     it("GETS a user", (done) => {
         var initialUser = {
-            user_name: "Test User",
-            first_name: "Test",
-            last_name: "Last name test",
-            email: "Test@test.com",
-            password: "1234"
+          user_name: "Test User",
+          first_name: "Test",
+          last_name: "Last name test",
+          email: "Test@test.com",
+          password: "1234"
         }
 
         var initialUser = new User(initialUser);
@@ -33,20 +33,20 @@ describe("User tests", () => {
             chai.request(server)
             .get("/user/"+initialUser._id)
             .end(function(err, res){
-                res.should.have.status(200);
-                res.body.should.be.a("object");
-                res.body.should.have.property("user_name").eql("Test User");
-                done();
+              res.should.have.status(200);
+              res.body.should.be.a("object");
+              res.body.should.have.property("user_name").eql("Test User");
+              done();
             });
         });
     });
     it("Creates a user", (done) => {
         var newUser = {
-            user_name: "Test User",
-            first_name: "Test",
-            last_name: "Last name test",
-            email: "Test@test.com",
-            password: "1234"
+          user_name: "Test User",
+          first_name: "Test",
+          last_name: "Last name test",
+          email: "Test@test.com",
+          password: "1234"
         }
         chai.request(server)
             .post("/user")
@@ -59,11 +59,11 @@ describe("User tests", () => {
     });
     it("Updates an existing User", (done) => {
         var initialUser = {
-            user_name: "Test User",
-            first_name: "Test",
-            last_name: "Last name test",
-            email: "Test@test.com",
-            password: "1234"
+          user_name: "Test User",
+          first_name: "Test",
+          last_name: "Last name test",
+          email: "Test@test.com",
+          password: "1234"
         }
 
         var initialUser = new User(initialUser);
@@ -86,11 +86,11 @@ describe("User tests", () => {
     });
     it("Deletes a user", (done) => {
         var initialUser = {
-            user_name: "Test User",
-            first_name: "Test",
-            last_name: "Last name test",
-            email: "Test@test.com",
-            password: "1234"
+          user_name: "Test User",
+          first_name: "Test",
+          last_name: "Last name test",
+          email: "Test@test.com",
+          password: "1234"
         }
 
         var initialUser = new User(initialUser);

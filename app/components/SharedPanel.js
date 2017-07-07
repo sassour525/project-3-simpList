@@ -22,13 +22,13 @@ class SharedPanel extends Component {
   }
 
   renderList(sharedTodoList) {
-    return sharedTodoList.map((item,index)=>{ 
-      return( <ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index}/> );
+    return sharedTodoList.map((item, index) => {
+      return (<ActionableListItem task={item.task} completed={item.completed} handleClick={this.toggleClick} key={index} taskIndex={index} />);
     });
   }
 
   // This function is called by the Dropdown component whenever an option is chosen
-    handleDropdownSelect(option) {
+  handleDropdownSelect(option) {
     // Setting this.state.selected to the dropdown option the user clicks
     // const _this = this;
     // helpers.getSharedListItems(option.value).then((list) => {
@@ -53,7 +53,7 @@ class SharedPanel extends Component {
     const newToDoList = [...this.state.sharedTodoList];
     newToDoList[taskIndex].completed = !newToDoList[taskIndex].completed;
     this.setState({
-        sharedTodoList: newToDoList,
+      sharedTodoList: newToDoList,
     });
   }
   render() {
@@ -64,12 +64,12 @@ class SharedPanel extends Component {
           <h5>Shared Lists</h5>
         </div>
         <div className="panel-body">
-        <Dropdown
-          options={this.state.dropdownOptions}
-          selected={this.state.selected}
-          handleSelect={this.handleDropdownSelect}  
-        />
-        {this.renderList(this.state.sharedTodoList)}
+          <Dropdown
+            options={this.state.dropdownOptions}
+            selected={this.state.selected}
+            handleSelect={this.handleDropdownSelect}
+          />
+          {this.renderList(this.state.sharedTodoList)}
         </div>
       </div>
     );

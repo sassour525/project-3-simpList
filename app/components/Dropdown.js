@@ -27,7 +27,6 @@ class Dropdown extends Component {
   }
 
   // renderList returns one li tag for each option prop we're passed
-  // Using option.value ("SHOW_L1", "SHOW_L2", etc)
   renderList() {
     return this.props.options.map(option => (
       <li onClick={() => this.handleDropdownSelect(option)} key={option.value}>

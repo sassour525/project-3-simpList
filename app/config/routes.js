@@ -29,21 +29,21 @@ export const makeMainRoutes = () => {
           <Route exact path="/" render={(props) => <Main auth={auth} {...props} />} />
           <Route path="/profile" render={(props) => (
             !auth.isAuthenticated() ? (
-              <Redirect to="/home"/>
+              <Redirect to="/home" />
             ) : (
-              <Profile auth={auth} {...props} />
-            )
+                <Profile auth={auth} {...props} />
+              )
           )} />
           {/*<Route path="/profile" render={(props) => <Profile auth={auth} {...props}/>} />*/}
-          <Route path="/home" render={(props) => <Home auth={auth} {...props}/>} />
+          <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/saved" render={() => <SavedPanel />} />
           <Route path="/shared" render={() => <SharedPanel />} />
           <Route path="/create" render={() => <CreateList />} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
-            return <Callback {...props} /> 
-          }}/>
+            return <Callback {...props} />
+          }} />
         </div>
       </div>
     </BrowserRouter>
