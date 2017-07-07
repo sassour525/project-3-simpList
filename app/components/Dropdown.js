@@ -36,7 +36,6 @@ class Dropdown extends Component {
         key={option.value}
         primaryText={option.text} /*<--- this will be the text in the Material-ui dropdown menu*/
       >
-        <a>{option.text}</a>
       </MenuItem>
     ));
   }
