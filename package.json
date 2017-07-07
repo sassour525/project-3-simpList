@@ -37,9 +37,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build": "react-scripts build",
-    "react_test": "react-scripts test --env=jsdom",
     "test": "mocha --timeout 15000",
-    "eject": "react-scripts eject"
   }
 }
