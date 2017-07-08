@@ -13,7 +13,7 @@ import SharedPanel from "../components/SharedPanel.js";
 import CreateList from "../components/CreateList.js";
 import Main from "../components/Main.js";
 import Home from "../components/Home.js";
-import Navbar from "../components/Navbar.js"
+import Navbard from "../components/Navbar.js"
 
 const auth = new Auth();
 

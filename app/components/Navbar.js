@@ -19,6 +19,9 @@ class Login extends Component {
 }
 
 const Logged = (props) => (
+
+  
+  
   <IconMenu
     {...props}
     iconButtonElement={
@@ -27,7 +30,7 @@ const Logged = (props) => (
     targetOrigin={{ horizontal: 'right', vertical: 'top' }}
     anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
   >
-    <MenuItem primaryText="Refresh" />
+    <MenuItem primaryText="Profile" />
     <MenuItem primaryText="Help" />
     <MenuItem primaryText="Sign out" />
   </IconMenu>
