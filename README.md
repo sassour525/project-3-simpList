@@ -1,7 +1,7 @@
 # simpList (List Sharing App)
 
 ## Description
-This MERN stack application allows users to create and share lists.
+This MERN stack application allows users to create and share lists with other users.
 
 ## Hosted:
 Heroku: <https://still-depths-95992.herokuapp.com/>
