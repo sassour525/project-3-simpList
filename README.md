@@ -11,7 +11,7 @@ Test Username: test@test.com
 Test Password: test
 
 ## Technologies/Libraries Used:
-* Node.js
+* Node.js <https://nodejs.org/en/>
 * Express <https://expressjs.com/>
 * MongoDB / Mongoose: <https://www.mongodb.com/> <http://mongoosejs.com/>
 * React.js <https://facebook.github.io/react/>
