@@ -35,7 +35,7 @@ const Logged = (props) => (
     <Link to='/create'> <MenuItem primaryText="Create New List" /></Link>
     <Link to='/saved'> <MenuItem primaryText="Saved Lists" /></Link>
     <Link to='/shared'> <MenuItem primaryText="Shared Lists" /></Link>
-    <MenuItem primaryText="Sign out" />
+    <Link to='/'> <MenuItem primaryText="Home" /></Link>
   </IconMenu>
 );
 
