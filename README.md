@@ -39,3 +39,4 @@ Heroku: <https://frozen-basin-48164.herokuapp.com/>
 * Express <https://expressjs.com/>
 * MongoDB / Mongoose: <https://www.mongodb.com/> <http://mongoosejs.com/>
 * React.js <https://facebook.github.io/react/>
+* Auth0 <https://github.com/auth0/>
