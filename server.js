@@ -39,7 +39,7 @@ app.get("/*", function(req, res) {
 // -------------------------------------------------
 
 if (process.env.MONGODB_URI) {
-  var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
+  var dbConnection = mongoose.connect("mongodb://heroku_8mcv9bb8:e3dmsa26osdpml40n59cknvm3v@ds151232.mlab.com:51232/heroku_8mcv9bb8", {useMongoClient: true});
 } else {
   var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
 }
