@@ -53,7 +53,7 @@ module.exports = {
                 }else{
                     var newUser = new User(req.body);
 
-                    newUser.save().then(function(newUser){
+                    newUser.save().then(function(createdUser){
                         res.json({_id: createdUser._id})
                     }).catch(function(err){
                         console.log(err);
