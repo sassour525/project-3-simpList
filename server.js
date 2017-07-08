@@ -8,6 +8,11 @@ let mongoose = require("mongoose");
 //const jwt = require("express-jwt");
 //const jwks = require('jwks-rsa');
 
+// var List = require("./models/List.js");
+// var ListItem = require("./models/ListItem.js");
+// var User = require("./models/User.js");
+// var Comments = require("./models/Comments/js");
+
 mongoose.Promise = bluebird;
 
 const routes = require("./routes/routes");
@@ -27,16 +32,20 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static('./public'));
 app.use("/", routes);
 app.get("/*", function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 //DB configuration
 // -------------------------------------------------
 
 if (process.env.MONGODB_URI) {
+<<<<<<< HEAD
     var dbConnection = mongoose.connect("mongodb://heroku_8mcv9bb8:e3dmsa26osdpml40n59cknvm3v@ds151232.mlab.com:51232/heroku_8mcv9bb8", {useMongoClient: true});
+=======
+  var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
+>>>>>>> dev
 } else {
-    var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
+  var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
 }
 
 dbConnection.then(function(db){

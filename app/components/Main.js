@@ -41,25 +41,25 @@ class Main extends Component {
             </Button>
             {
               !isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.login.bind(this)}
-                  >
-                    Log In
+                <Button
+                  bsStyle="primary"
+                  className="btn-margin"
+                  onClick={this.login.bind(this)}
+                >
+                  Log In
                   </Button>
-                )
+              )
             }
             {
               isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.logout.bind(this)}
-                  >
-                    Log Out
+                <Button
+                  bsStyle="primary"
+                  className="btn-margin"
+                  onClick={this.logout.bind(this)}
+                >
+                  Log Out
                   </Button>
-                )
+              )
             }
           </Navbar.Header>
         </Navbar>

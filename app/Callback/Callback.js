@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
-
+import CircularProgress from 'material-ui/CircularProgress';
 
 class Callback extends Component {
+  
   render() {
     const style = {
-      position: 'absolute',
-      display: 'flex',
-      justifyContent: 'center',
-      height: '100vh',
-      width: '100vw',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      backgroundColor: 'white',
-    }
+      container: {
+        position: 'relative',
+      },
+      refresh: {
+        display: 'inline-block',
+        position: 'relative',
+      },
+    };
 
     return (
-      <div style={style}>
-        <p> yo its loading dawg </p>
+      <div>
+        <CircularProgress size={600} thickness={5} />
       </div>
     );
   }

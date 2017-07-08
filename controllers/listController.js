@@ -4,27 +4,27 @@ module.exports = {
 
     find: function (req, res) {
         console.log("This is your req param:" + req.params.id);
-        List.findOne({_id: req.params.id})
-            .then(function(list) {
-            res.json(list);
-        }).catch(function(err) {
-            console.log(err);
-            res.send("There was an error");
-        });
+        List.findOne({ _id: req.params.id })
+            .then(function (list) {
+                res.json(list);
+            }).catch(function (err) {
+                console.log(err);
+                res.send("There was an error");
+            });
 
     },
 
-    findAll: function(req, res) {
-        List.find({}).then(function(allList) {
+    findAll: function (req, res) {
+        List.find({}).then(function (allList) {
             res.json(allList);
-        }).catch(function(err) {
+        }).catch(function (err) {
             console.log(err);
             res.send("There was an error");
         });
     },
 
     findByUser: function (req, res) {
-        list.find(
+        List.find(
             { owner: req.params.userId }).then(function (userLists) {
                 res.json(userLists)
             }).catch(function (err) {
@@ -37,31 +37,30 @@ module.exports = {
         console.log(req.body);
 
         newList.save().then(function (createdList) {
-           
-                res.send("The list has been created")
-            /* User.findOneAndUpdate(
-                 { _id: req.body.userId },
-                 { $set: { user_lists: createdList._id } }).then(function (updatedUser) {
-                     res.send("The list has been created")
-                 }).catch(function (err) {
-                     console.log(err);
-                     res.send("There was an error creating the list!")
-                 })
-         }).catch(function (err) {
-             console.log(err);
-             res.send("There was an error creating the list!")
-         })*/
+            User.findOneAndUpdate(
+                { _id: createdList.owner },
+                { $push: { user_lists: createdList._id } }).then(function (updatedUser) {
+                    res.send("The list has been created")
+                }).catch(function (err) {
+                    console.log(err);
+                    res.send("There was an error creating the list!")
+                })
         }).catch(function (err) {
-             console.log(err);
-             res.send("There was an error creating the list!")
-         })
+            console.log(err);
+            res.send("There was an error creating the list!")
+        })
     },
 
     share: function (req, res) {
+        console.log(req.body.name);
         User.findOneAndUpdate(
-            { _id: req.body.userId },
+            { name: req.body.name },
             { $push: { shared_lists: req.body.listId } }).then(function (updatedShared) {
-                res.send("The list has been shared");
+                if(updatedShared){
+                    res.send("The list has been shared");
+                }else{
+                    res.send("No user matches that name")
+                }
             }).catch(function (err) {
                 res.send("There was an error sharing the list")
             })

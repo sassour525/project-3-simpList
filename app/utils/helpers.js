@@ -3,26 +3,27 @@ var axios = require("axios");
 
 // Helper functions for making API Calls
 var helper = {
+    shareList: function(shareOptions){
+        return axios.post("/list/share/", shareOptions);
+    },
+    getSharedLists: function(userId) {
+        return axios.get("/user/sharedlists/"+userId);
+    },
+    createUser: function (user) {
+        return axios.post("/user/", user)
+    },
 
-	// getSavedLists = () => {
-	// 	return axios.get();
-	// },
+    postList: function (list) {
+        return axios.post("/list/", list);
+    },
 
-	// getSharedLists = () => {
-	// 	return axios.get();
-	// },
+    getSavedList: function (userId) {
+        return axios.get("/list/user/" + userId);
+    },
 
-	postList: function(list) {
-		return axios.post("/list/", list);
-	},
-
-	getSavedList: function() {
-		return axios.get("/list/all");
-	},
-
-	getListItems: function(listId) {
-		return axios.get("/list/" + listId);
-	}
+    getListItems: function (listId) {
+        return axios.get("/list/" + listId);
+    }
 
 };
 
