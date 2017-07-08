@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
@@ -24,8 +24,8 @@ const Logged = (props) => (
     iconButtonElement={
       <IconButton><MoreVertIcon /></IconButton>
     }
-    targetOrigin={{horizontal: 'right', vertical: 'top'}}
-    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+    targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+    anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
   >
     <MenuItem primaryText="Refresh" />
     <MenuItem primaryText="Help" />
@@ -39,21 +39,21 @@ Logged.muiName = 'IconMenu';
  * This example is taking advantage of the composability of the `AppBar`
  * to render different components depending on the application state.
  */
-class Navbar extends Component {
+class Navbard extends Component {
+
   state = {
     logged: true,
   };
 
   handleChange = (event, logged) => {
-    this.setState({logged: logged});
+    this.setState({ logged: logged });
   };
 
   render() {
     return (
       <div>
         <AppBar
-          title="Title"
-          iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+          title="simpList"
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
         />
       </div>
@@ -61,4 +61,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default Navbard;

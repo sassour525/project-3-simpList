@@ -13,6 +13,7 @@ import SharedPanel from "../components/SharedPanel.js";
 import CreateList from "../components/CreateList.js";
 import Main from "../components/Main.js";
 import Home from "../components/Home.js";
+import Navbar from "../components/Navbar.js"
 
 const auth = new Auth();
 
@@ -26,7 +27,6 @@ export const makeMainRoutes = () => {
   return (
     <MuiThemeProvider>
     <BrowserRouter history={history} component={Main}>
-      <div className="container">
         <div>
           <Route exact path="/" render={(props) => <Main auth={auth} {...props} />} />
           <Route path="/profile" render={(props) => (
@@ -46,7 +46,6 @@ export const makeMainRoutes = () => {
             handleAuthentication(props);
             return <Callback {...props} />
           }} />
-        </div>
         </div>
       </BrowserRouter>
     </MuiThemeProvider>
