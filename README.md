@@ -6,8 +6,8 @@
 ## Hosted:
 Heroku: <https://still-depths-95992.herokuapp.com/>
 
-###Test Username: test@test.com
-###Test Password: test
+### Test Username: test@test.com
+### Test Password: test
 
 ## Project Members: 
 ### Stephen Pino - <https://github.com/StephenPino/>
