@@ -1,6 +1,9 @@
 {
   "name": "simplist",
   "version": "0.1.0",
+  "engines": {
+    "node": "6.9.1"
+  },
   "private": true,
   "dependencies": {
     "auth0-js": "^8.8.0",

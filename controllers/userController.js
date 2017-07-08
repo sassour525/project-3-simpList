@@ -54,7 +54,8 @@ module.exports = {
                     var newUser = new User(req.body);
 
                     newUser.save().then(function (createdUser) {
-                        res.json({ _id: createdUser._id });
+                        res.send("here!");
+                        //res.json({ _id: createdUser._id });
                     }).catch(function (err) {
                         console.log(err);
                         res.send("There was an error creating the user")
