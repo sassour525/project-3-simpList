@@ -46,7 +46,7 @@ module.exports = {
     create: function (req, res) {
         console.log("the request create function is called" + req.body)
         User.findOne(
-            { sub: req.body.sub }, function (err) {if (err) console.log (err)}).then(function (foundUser) {
+            { sub: req.body.sub }).then(function (foundUser) {
                 console.log(foundUser);
                 if (foundUser) {
                     res.json({alreadyExist: true, _id: foundUser._id})
