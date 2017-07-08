@@ -44,6 +44,7 @@ module.exports = {
             })
     },
     create: function (req, res) {
+        console.log("the request create function is called" + req.body)
         User.findOne(
             { sub: req.body.sub }).then(function (foundUser) {
                 console.log(foundUser);
