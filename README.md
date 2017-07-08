@@ -1,7 +1,7 @@
 # UT Coding Bootcamp | Project 3
 
 # Project Name: 
-## Party Sherpa (Event Planning App)
+## simpList (Event Planning App)
 
 ## Hosted:
 Heroku: <https://frozen-basin-48164.herokuapp.com/>
