@@ -64,10 +64,11 @@ class CreateList extends Component {
     console.log(this.state.listName);
     //array of objects with list items input
     console.log(this.state.todoList);
-
+    let _id = localStorage.getItem("userId");
     var finalList = {
       title: this.state.listName,
-      listItems: this.state.todoList
+      listItems: this.state.todoList,
+      owner: _id
     }
 
     console.log(finalList);
