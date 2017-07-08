@@ -1,10 +1,10 @@
 # UT Coding Bootcamp | Project 3
 
 # Project Name: 
-## simpList (Event Planning App)
+## simpList (List Sharing App)
 
 ## Hosted:
-Heroku: <https://frozen-basin-48164.herokuapp.com/>
+Heroku: <https://still-depths-95992.herokuapp.com/>
 
 ## Project Members: 
 ### Stephen Pino - <https://github.com/StephenPino/>
