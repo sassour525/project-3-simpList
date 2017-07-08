@@ -16,6 +16,7 @@ Test Password: test
 * MongoDB / Mongoose: <https://www.mongodb.com/> <http://mongoosejs.com/>
 * React.js <https://facebook.github.io/react/>
 * Auth0 <https://github.com/auth0/>
+* Axios <https://github.com/mzabriskie/axios/>
 
 ## Project Members: 
 ### Stephen Pino - <https://github.com/StephenPino/>
