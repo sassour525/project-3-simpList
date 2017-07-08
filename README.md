@@ -19,15 +19,12 @@ Heroku: <https://still-depths-95992.herokuapp.com/>
 * User authentication (Auth0)
 * RESTful API routing (Express.js)
 ### Jeff McMahan
-*
-*
-*
-*
+* Material UI
+* React Components (React)
 ### Shawn Assour
-*
-*
-*
-*
+* React Components (React)
+* Initial Front-end Styling (Bootstrap)
+* Axios helper functions (Axios)
 ### Paul Viola
 *
 *
