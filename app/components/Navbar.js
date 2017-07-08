@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
+import { Route, Link } from "react-router-dom";
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -30,8 +31,10 @@ const Logged = (props) => (
     targetOrigin={{ horizontal: 'right', vertical: 'top' }}
     anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
   >
-    <MenuItem primaryText="Profile" />
-    <MenuItem primaryText="Help" />
+    <Link to='/profile'> <MenuItem primaryText="Profile" /></Link>
+    <Link to='/create'> <MenuItem primaryText="Create New List" /></Link>
+    <Link to='/saved'> <MenuItem primaryText="Saved Lists" /></Link>
+    <Link to='/shared'> <MenuItem primaryText="Shared Lists" /></Link>
     <MenuItem primaryText="Sign out" />
   </IconMenu>
 );

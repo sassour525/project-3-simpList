@@ -39,7 +39,7 @@ class Profile extends Component {
 							/>
 						</h5>
 					</div>
-					<pre>{JSON.stringify(profile, null, 2)}</pre>
+					{/*<pre>{JSON.stringify(profile, null, 2)}</pre>*/}
 
 					<div className="panel-body">
 						<div className="row">
