@@ -1,7 +1,4 @@
-# UT Coding Bootcamp | Project 3
-
-# Project Name: 
-## simpList (List Sharing App)
+# simpList (List Sharing App)
 
 ## Hosted:
 Heroku: <https://still-depths-95992.herokuapp.com/>
