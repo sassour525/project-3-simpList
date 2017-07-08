@@ -46,6 +46,25 @@ module.exports = {
     create: function (req, res) {
         console.log("the request create function is called" + req.body)
         User.findOne(
+            {sub: req.body.sub}).then(function(foundUser){
+                console.log("here: found user" + foundUser);
+                if(foundUser){
+                    res.json({alreadyExist: true, _id: foundUser._id})
+                }else{
+                    var newUser = new User(req.body);
+
+                    newUser.save().then(function(newUser){
+                        res.json({_id: createdUser._id})
+                    }).catch(function(err){
+                        console.log(err);
+                        res.send("There was an error creating the user")
+                    })
+                }
+            }).catch(function(err){
+                console.log(err);
+                res.send("There was an error creating the user")
+            })
+        /*User.findOne(
             { sub: req.body.sub }).then(function (foundUser) {
                 console.log(foundUser);
                 if (foundUser) {
@@ -63,7 +82,7 @@ module.exports = {
             }).catch(function (err) {
                 console.log(err);
                 res.send("There was an error creating the user")
-            });
+            });*/
     },
 
     update: function (req, res) {
