@@ -9,6 +9,15 @@ Heroku: <https://still-depths-95992.herokuapp.com/>
 Test Username: test@test.com
 Test Password: test
 
+## Description
+
+## Technologies/Libraries Used:
+* Node.js
+* Express <https://expressjs.com/>
+* MongoDB / Mongoose: <https://www.mongodb.com/> <http://mongoosejs.com/>
+* React.js <https://facebook.github.io/react/>
+* Auth0 <https://github.com/auth0/>
+
 ## Project Members: 
 ### Stephen Pino - <https://github.com/StephenPino/>
 ### Jeff McMahan - <https://github.com/jjm552/>
@@ -33,10 +42,3 @@ Test Password: test
 *
 *
 *
-
-## Technologies/Libraries Used:
-* Node.js
-* Express <https://expressjs.com/>
-* MongoDB / Mongoose: <https://www.mongodb.com/> <http://mongoosejs.com/>
-* React.js <https://facebook.github.io/react/>
-* Auth0 <https://github.com/auth0/>
