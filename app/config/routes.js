@@ -13,6 +13,7 @@ import SharedPanel from "../components/SharedPanel.js";
 import CreateList from "../components/CreateList.js";
 import Main from "../components/Main.js";
 import Home from "../components/Home.js";
+import Navbard from "../components/Navbar.js"
 
 const auth = new Auth();
 
@@ -26,7 +27,6 @@ export const makeMainRoutes = () => {
   return (
     <MuiThemeProvider>
     <BrowserRouter history={history} component={Main}>
-      <div className="container">
         <div>
           <Route exact path="/" render={(props) => <Main auth={auth} {...props} />} />
           <Route path="/profile" render={(props) => (
@@ -36,17 +36,33 @@ export const makeMainRoutes = () => {
                 <Profile auth={auth} {...props} />
               )
           )} />
+          <Route path="/saved" render={(props) => (
+            !auth.isAuthenticated() ? (
+              <Redirect to="/home" />
+            ) : (
+                <SavedPanel auth={auth} {...props} />
+              )
+          )} />
+          <Route path="/shared" render={(props) => (
+            !auth.isAuthenticated() ? (
+              <Redirect to="/home" />
+            ) : (
+                <SharedPanel auth={auth} {...props} />
+              )
+          )} />
+          <Route path="/create" render={(props) => (
+            !auth.isAuthenticated() ? (
+              <Redirect to="/home" />
+            ) : (
+                <CreateList auth={auth} {...props} />
+              )
+          )} />
           {/*<Route path="/profile" render={(props) => <Profile auth={auth} {...props}/>} />*/}
           <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
-          <Route path="/login" render={() => <Login />} />
-          <Route path="/saved" render={() => <SavedPanel />} />
-          <Route path="/shared" render={() => <SharedPanel />} />
-          <Route path="/create" render={() => <CreateList />} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />
           }} />
-        </div>
         </div>
       </BrowserRouter>
     </MuiThemeProvider>

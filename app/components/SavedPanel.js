@@ -6,6 +6,7 @@ import ActionableListItem from './ActionableListItem.js';
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
 import helpers from "../utils/helpers.js";
+import Navbard from './Navbar.js';
 
 class SavedPanel extends Component {
     // Initializing our dropdownOptions on state, setting a default selected option
@@ -74,36 +75,41 @@ class SavedPanel extends Component {
         //sharedID to save
         console.log(this.state.sharedID);
         let shareOptions = {
-            listId : this.state.selected.value,
+            listId: this.state.selected.value,
             name: this.state.sharedID
         }
         console.log(shareOptions);
-        console.log("Username: "+shareOptions.name)
-        helpers.shareList(shareOptions).then(function(data){
+        console.log("Username: " + shareOptions.name)
+        helpers.shareList(shareOptions).then(function (data) {
             console.log(data);
-        }).catch(function(err){
+        }).catch(function (err) {
             console.log(err);
         })
-  };
+    };
 
     render() {
 
         return (
-            <div className="panel panel-default">
-                <div className="panel-heading">
-                    <h5>Saved Lists</h5>
-                </div>
-                <div className="panel-body">
-                    <form id="share-form" onSubmit={this.handleSubmit}>
-                        <input id="shareID-txt" type="text" value={this.state.listName} onChange={this.handleChange('sharedID')} placeholder="User Name" />
-                        <button id="share-list-btn">Share List</button>
-                    </form>
-                    <Dropdown
-                        options={this.state.dropdownOptions}
-                        selected={this.state.selected}
-                        handleSelect={this.handleDropdownSelect}
-                    />
-                    {this.renderList(this.state.savedTodoList)}
+            <div>
+                <Navbard />
+                <div className='container'>
+                    <div className="panel panel-default">
+                        <div className="panel-heading">
+                            <h5>Saved Lists</h5>
+                        </div>
+                        <div className="panel-body">
+                            <form id="share-form" onSubmit={this.handleSubmit}>
+                                <input id="shareID-txt" type="text" value={this.state.listName} onChange={this.handleChange('sharedID')} placeholder="User Name" />
+                                <button id="share-list-btn">Share List</button>
+                            </form>
+                            <Dropdown
+                                options={this.state.dropdownOptions}
+                                selected={this.state.selected}
+                                handleSelect={this.handleDropdownSelect}
+                            />
+                            {this.renderList(this.state.savedTodoList)}
+                        </div>
+                    </div>
                 </div>
             </div>
         );

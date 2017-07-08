@@ -6,6 +6,7 @@ import ActionableListItem from './ActionableListItem.js';
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
 import helpers from "../utils/helpers.js";
+import Navbard from './Navbar.js';
 
 class SharedPanel extends Component {
     // Initializing our dropdownOptions on state, setting a default selected option
@@ -62,17 +63,22 @@ class SharedPanel extends Component {
     render() {
 
         return (
-            <div className="panel panel-default">
-                <div className="panel-heading">
-                    <h5>Shared Lists</h5>
-                </div>
-                <div className="panel-body">
-                    <Dropdown
-                        options={this.state.dropdownOptions}
-                        selected={this.state.selected}
-                        handleSelect={this.handleDropdownSelect}
-                    />
-                    {this.renderList(this.state.sharedTodoList)}
+            <div>
+                <Navbard />
+                <div className='container'>
+                    <div className="panel panel-default">
+                        <div className="panel-heading">
+                            <h5>Shared Lists</h5>
+                        </div>
+                        <div className="panel-body">
+                            <Dropdown
+                                options={this.state.dropdownOptions}
+                                selected={this.state.selected}
+                                handleSelect={this.handleDropdownSelect}
+                            />
+                            {this.renderList(this.state.sharedTodoList)}
+                        </div>
+                    </div>
                 </div>
             </div>
         );

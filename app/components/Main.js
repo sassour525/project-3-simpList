@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Button } from 'react-bootstrap';
+import Navbard from './Navbar.js';
 
 //Main component used to render routes
 class Main extends Component {
@@ -20,10 +21,11 @@ class Main extends Component {
 
     return (
       <div>
+      <Navbard />
+      <div className='container'>
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Auth0 - React</a>
             </Navbar.Brand>
             <Button
               bsStyle="primary"
@@ -63,6 +65,7 @@ class Main extends Component {
             }
           </Navbar.Header>
         </Navbar>
+      </div>
       </div>
     );
   }

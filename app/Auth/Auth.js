@@ -32,9 +32,9 @@ export default class Auth {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        history.replace('/');
+        history.replace('/profile');
       } else if (err) {
-        history.replace('/');
+        history.replace('/profile');
         console.log(err);
       }
     });
@@ -49,7 +49,7 @@ export default class Auth {
     localStorage.setItem('expires_at', expiresAt);
     console.log("Set Session working");
     // navigate to the home route
-    history.replace('/');
+    history.replace('/profile');
   }
 
   logout() {

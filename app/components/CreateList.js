@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListItem from './ListItem.js';
 import InputBar from './InputBar.js'
 import helpers from '../utils/helpers.js'
+import Navbard from './Navbar.js';
 
 import RaisedButton from "material-ui/RaisedButton";
 import Paper from "material-ui/Paper";
@@ -87,6 +88,9 @@ class CreateList extends Component {
       };
 
         return (
+          <div>
+          <Navbard />
+          <div className="container">
           <div className="panel panel-default">
             <div className="panel-heading">
               <h5>Create a new list</h5>
@@ -105,6 +109,8 @@ class CreateList extends Component {
                 <RaisedButton id="save-list-btn" type="submit" primary={true} label="Save List" />
               </form>
             </div>
+          </div>
+          </div>
           </div>
         );
   }
