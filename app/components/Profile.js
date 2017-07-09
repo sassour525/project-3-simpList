@@ -26,6 +26,9 @@ class Profile extends Component {
 		const buttonStyle = {
 			margin: 12,
 		};
+		const avatarStyle ={
+			marginLeft: 5,
+		};
 
 		const { profile } = this.state;
 		return (
@@ -35,7 +38,7 @@ class Profile extends Component {
 				<div className="panel panel-default">
 					<div className="panel-heading">
 						<h5>Welcome {profile.name}
-							<Avatar src={profile.picture}
+							<Avatar src={profile.picture} style={avatarStyle}
 							/>
 						</h5>
 					</div>

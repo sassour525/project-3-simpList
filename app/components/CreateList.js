@@ -122,8 +122,6 @@ class CreateList extends Component {
               <InputBar addTask={this.state.addNewTask} />
               <div>
                 {this.state.todoList.map((item, index) => {
-                  console.log(item);
-                  console.log("89 " + index);
                   return <ListItem task={item.task} key={index} value={index} taskIndex={index} onRequestDelete={this.onRequestDelete} handleTouchTap={this.handleTouchTap} />
                 })}
               </div>

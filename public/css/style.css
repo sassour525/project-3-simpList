@@ -1,5 +1,6 @@
 html,
-body {
+body,
+{
     background: url('../images/notebook.png');
     font-family: 'Roboto', sans-serif;
 }
@@ -60,7 +61,9 @@ body {
     margin-bottom: 20px;
 }
 
-#add-list-item-btn,
+
+/*#add-list-item-btn,*/
+
 #share-list-btn {
     margin-left: 5px;
 }
