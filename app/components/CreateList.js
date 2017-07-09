@@ -21,6 +21,7 @@ class CreateList extends Component {
       todoList: [],
       listItemInput: '',
       newItem: '',
+      value: '',
       addNewTask: (taskText) => {
         if (taskText == '') { return; }
         let newItem = { task: taskText, completed: false };
@@ -119,7 +120,7 @@ class CreateList extends Component {
               <h5>Create a new list</h5>
             </div>
             <div className="panel-body">
-              <InputBar addTask={this.state.addNewTask} />
+              <InputBar addTask={this.state.addNewTask} value={this.state.value} onChange={this.handleChange} />
               <div>
                 {this.state.todoList.map((item, index) => {
                   return <ListItem task={item.task} key={index} value={index} taskIndex={index} onRequestDelete={this.onRequestDelete} handleTouchTap={this.handleTouchTap} />
