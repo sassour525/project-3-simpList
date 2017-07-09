@@ -38,16 +38,35 @@ app.get("/*", function(req, res) {
 //DB configuration
 // -------------------------------------------------
 
-if (process.env.MONGODB_URI) {
-  var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
-} else {
-  var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
-}
+// if (process.env.MONGODB_URI) {
+//   var dbConnection = mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
+// } else {
+//   var dbConnection = mongoose.connect("mongodb://localhost/simplist", {useMongoClient: true});
+// }
 
-dbConnection.then(function(db){
-    app.listen(PORT, function() {
-        console.log("Connected to mongod. App listening on PORT: " + PORT);
+// dbConnection.then(function(db){
+//     app.listen(PORT, function() {
+//         console.log("Connected to mongod. App listening on PORT: " + PORT);
+//     });
+// }).catch(function(err) {
+//     console.log("Error connecting to mongoose")
+// });
+
+if(process.env.MONGODB_URI){
+    mongoose.connect("mongodb://heroku_8mcv9bb8:e3dmsa26osdpml40n59cknvm3v@ds151232.mlab.com:51232/heroku_8mcv9bb8")
+}else{
+     mongoose.connect("mongodb://localhost/simplist");
+}
+var db = mongoose.connection;
+
+db.on("error", function (err) {
+    console.log("Mongoose err: " + err);
+});
+
+//The server will listen only if the mongoose database is connected
+db.once("open", function () {
+    console.log("Mongo is connected!");
+    app.listen(PORT, function () {
+        console.log("App listening on port: " + PORT);
     });
-}).catch(function(err) {
-    console.log("Error connecting to mongoose")
 });
