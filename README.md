@@ -4,7 +4,7 @@
 This MERN stack application allows users to create and share lists with other users.
 
 ## Hosted:
-Heroku: <https://still-depths-95992.herokuapp.com/>
+Heroku: <https://frozen-basin-48164.herokuapp.com//>
 
 Test Username: test@test.com
 
